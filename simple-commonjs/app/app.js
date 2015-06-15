@@ -14,7 +14,7 @@ var pizzaDiagram = fs.readFileSync(__dirname + '/../resources/simple.dmn', 'utf-
 // dependencies via npm install
 var DmnViewer = require('dmn-js');
 
-var viewer = new DmnViewer({ container: '#canvas' });
+var viewer = new DmnViewer({ container: '#table' });
 
 viewer.importXML(pizzaDiagram, function(err) {
   if (!err) {
