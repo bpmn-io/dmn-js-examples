@@ -1,39 +1,37 @@
-# bpmn-js in CommonJS Applications
+# dmn-js in CommonJS Applications
 
-[bpmn-js](https://github.com/bpmn-io/bpmn-js) is the BPMN 2.0 diagram modeling and rendering toolkit that powers [bpmn.io](http://bpmn.io).
+[dmn-js](https://github.com/dmn-io/dmn-js) is a DMN modeling and rendering toolkit.
 
-This example showcases how to integrate [bpmn-js](https://github.com/bpmn-io/bpmn-js) into a node-style application.
-It gets [bpmn-js via npm](https://www.npmjs.org/package/bpmn-js) and packages the application for the browser using [browserify](http://browserify.org).
+This example showcases how to integrate [dmn-js](https://github.com/dmn-io/dmn-js) into a node-style application.
+It gets dmn-js via npm and packages the application for the browser using [browserify](http://browserify.org).
 
 
 ## About
 
-This example uses bpmn-js to embed the [pizza collaboration](http://demo.bpmn.io/s/pizza-collaboration) diagram into a web application.
+This example uses dmn-js to embed the example table into a web application.
 
-![demo application screenshot](https://raw.githubusercontent.com/bpmn-io/bpmn-js-examples/master/simple-commonjs/docs/screenshot.png "Screenshot of the example application")
+![demo application screenshot](https://raw.githubusercontent.com/dmn-io/dmn-js-examples/master/simple-commonjs/docs/screenshot.png "Screenshot of the example application")
 
 
 ## Usage Summary
 
-Install bpmn-js via [npm](http://npmjs.org)
+Install dmn-js via [npm](http://npmjs.org)
 
 ```
-npm install --save bpmn-js
+npm install --save dmn-js
 ```
 
 Use it in your application
 
 ```javascript
-var BpmnViewer = require('bpmn-js');
+var DmnViewer = require('dmn-js');
 
 
-var viewer = new BpmnViewer({ container: '#canvas' });
+var viewer = new DmnViewer({ container: '#table' });
 
-viewer.importXML(pizzaDiagram, function(err) {
-
+viewer.importXML(exampleTable, function(err) {
   if (!err) {
     console.log('success!');
-    viewer.get('canvas').zoom('fit-viewport');
   } else {
     console.log('something went wrong:', err);
   }
