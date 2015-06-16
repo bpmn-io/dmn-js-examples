@@ -124,12 +124,12 @@ $(document).on('ready', function() {
     }
   }
 
-  var exportArtifacts = window.setInterval(function() {
+  var exportArtifacts = function() {
     saveTable(function(err, xml) {
       setEncoded(downloadLink, 'table.dmn', err ? null : xml);
     });
 
-  }, 1000);
+  };
 
   renderer.on('commandStack.changed', exportArtifacts);
 });
