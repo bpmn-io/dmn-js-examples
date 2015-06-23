@@ -68,6 +68,16 @@ module.exports = function(grunt) {
           }
         ]
       },
+      table_js: {
+        files: [
+          {
+            expand: true,
+            cwd: resolvePath('dmn-js', 'node_modules/table-js/assets/fonts/'),
+            src: '*.*',
+            dest: '<%= config.dist %>/css/fonts/'
+          }
+        ]
+      },
       app: {
         files: [
           {
