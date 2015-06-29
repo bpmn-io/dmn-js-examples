@@ -72,9 +72,9 @@ module.exports = function(grunt) {
         files: [
           {
             expand: true,
-            cwd: resolvePath('dmn-js', 'node_modules/table-js/assets/fonts/'),
+            cwd: resolvePath('dmn-js', 'node_modules/table-js/assets/'),
             src: '*.*',
-            dest: '<%= config.dist %>/css/fonts/'
+            dest: '<%= config.dist %>/css/'
           }
         ]
       },
