@@ -73,7 +73,7 @@ module.exports = function(grunt) {
           {
             expand: true,
             cwd: resolvePath('dmn-js', 'node_modules/table-js/assets/'),
-            src: '*.*',
+            src: '**/*.*',
             dest: '<%= config.dist %>/css/'
           }
         ]
