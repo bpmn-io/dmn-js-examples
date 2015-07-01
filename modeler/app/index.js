@@ -9,7 +9,7 @@ var container = $('#js-drop-zone');
 
 var canvas = $('#js-table');
 
-var renderer = new DmnModeler({ container: canvas });
+var renderer = new DmnModeler({ container: canvas, keyboard: { bindTo: document } });
 
 var newTableXML = fs.readFileSync(__dirname + '/../resources/newTable.dmn', 'utf-8');
 
