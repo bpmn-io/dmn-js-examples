@@ -9,7 +9,7 @@ var container = $('#js-drop-zone');
 
 var canvas = $('#js-table');
 
-var renderer = new DmnModeler({ container: canvas, keyboard: { bindTo: document } });
+var renderer = new DmnModeler({ container: canvas, keyboard: { bindTo: document }, tableName: 'DMN Table' });
 
 var newTableXML = fs.readFileSync(__dirname + '/../resources/newTable.dmn', 'utf-8');
 
@@ -116,7 +116,7 @@ $(document).on('ready', function() {
 
     if (data) {
       link.addClass('active').attr({
-        'href': 'data:application/bpmn20-xml;charset=UTF-8,' + encodedData,
+        'href': 'data:application/xml;charset=UTF-8,' + encodedData,
         'download': name
       });
     } else {
