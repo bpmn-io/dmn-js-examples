@@ -125,10 +125,11 @@ module.exports = function(grunt) {
 
   // tasks
 
-  grunt.registerTask('build', [ 'copy', 'browserify:app' ]);
+  grunt.registerTask('build', [ 'copy', 'less', 'browserify:app' ]);
 
   grunt.registerTask('auto-build', [
     'copy',
+    'less',
     'browserify:watch',
     'connect:livereload',
     'watch'
