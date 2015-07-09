@@ -59,21 +59,25 @@ module.exports = function(grunt) {
         }
       }
     },
-    copy: {
-      dmn_js: {
-        files: [
-          {
-            src: resolvePath('dmn-js', 'assets/dmn-js.css'),
-            dest: '<%= config.dist %>/css/dmn-js.css'
-          }
+    less: {
+      options: {
+        paths: [
+          // in order to be able to import "bootstrap/less/**"
+          'node_modules'
         ]
       },
-      table_js: {
+
+      styles: {
+        files: { 'dist/css/dmn-js.css': 'node_modules/dmn-js/styles/dmn-js.less' }
+      }
+    },
+    copy: {
+      fonts: {
         files: [
           {
+            cwd: 'node_modules/dmn-js',
+            src: 'fonts/**',
             expand: true,
-            cwd: resolvePath('dmn-js', 'node_modules/table-js/assets/'),
-            src: '**/*.*',
             dest: '<%= config.dist %>/css/'
           }
         ]

@@ -51,23 +51,35 @@ module.exports = function(grunt) {
         }
       }
     },
+    less: {
+      options: {
+        paths: [
+          // in order to be able to import "bootstrap/less/**"
+          'node_modules'
+        ]
+      },
+
+      styles: {
+        files: { 'dist/css/dmn-js.css': 'node_modules/dmn-js/styles/dmn-js.less' }
+      }
+    },
     copy: {
+      fonts: {
+        files: [
+          {
+            cwd: 'node_modules/dmn-js',
+            src: 'fonts/**',
+            expand: true,
+            dest: '<%= config.dist %>/css/'
+          }
+        ]
+      },
       app: {
         files: [
           {
             expand: true,
             cwd: '<%= config.sources %>/',
             src: ['**/*.*', '!**/*.js'],
-            dest: '<%= config.dist %>'
-          }
-        ]
-      },
-      assets: {
-        files: [
-          {
-            expand: true,
-            cwd: 'node_modules/dmn-js/assets/',
-            src: ['**/*.*'],
             dest: '<%= config.dist %>'
           }
         ]
