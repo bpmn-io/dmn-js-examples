@@ -13,7 +13,7 @@ This example is a node-style web application that builds a user interface around
 
 You need a [NodeJS](http://nodejs.org) development stack with [npm](https://npmjs.org) and [grunt](http://gruntjs.com) installed to build the project.
 
-To install all project dependencies execute
+Build [dmn-js](https://github.com/dmn-io/dmn-js) with all it´s dependencies (and [npm links](https://github.com/dmn-io/dmn-js/blob/master/docs/project/SETUP.md)) and link it into modeler´s node_modules via npm link. Then install all other project dependencies via 
 
 ```
 npm install
