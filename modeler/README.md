@@ -19,7 +19,7 @@ Build [dmn-js](https://github.com/dmn-io/dmn-js) with all it´s dependencies (an
 npm install
 ```
 
-Build the application (including [dmn-js]) using [browserify](http://browserify.org) via
+Build the application (including [dmn-js](https://github.com/dmn-io/dmn-js)) using [browserify](http://browserify.org) via
 
 ```
 grunt
