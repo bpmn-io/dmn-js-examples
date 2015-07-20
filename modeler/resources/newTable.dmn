@@ -70,6 +70,7 @@
         </outputEntry>
       </clause>
       <clause id="clause4" name="Reason" camunda:output="reason">
+        <outputDefinition href="#itemDefinition4" />
         <outputEntry id="outputEntry3">
           <text><![CDATA[work on your status first, as bronze you're not going to get anything]]></text>
         </outputEntry>
