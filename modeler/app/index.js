@@ -3,13 +3,22 @@
 var fs = require('fs');
 
 var $ = require('jquery'),
-    DmnModeler = require('dmn-js/lib/Modeler');
+    DmnModeler = require('dmn-js/lib/Modeler'),
+    camundaExtension = require('../resources/camunda.json');
+
 
 var container = $('#js-drop-zone');
 
 var canvas = $('#js-table');
 
-var renderer = new DmnModeler({ container: canvas, keyboard: { bindTo: document }, tableName: 'DMN Table' });
+var renderer = new DmnModeler({
+  container: canvas,
+  keyboard: { bindTo: document },
+  tableName: 'DMN Table',
+  moddleExtensions: {
+    camunda: camundaExtension
+  }
+});
 
 var newTableXML = fs.readFileSync(__dirname + '/../resources/newTable.dmn', 'utf-8');
 
