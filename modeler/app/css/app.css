@@ -11,8 +11,8 @@ body, html {
   margin: 0;
 }
 
-a:link {
-  text-decoration: none;
+#js-create-table {
+  color: #007AFF;
 }
 
 .content,
