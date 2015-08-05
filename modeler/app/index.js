@@ -21,9 +21,13 @@ var renderer = new DmnModeler({
 });
 
 var newTableXML = fs.readFileSync(__dirname + '/../resources/newTable.dmn', 'utf-8');
+var exampleXML = fs.readFileSync(__dirname + '/../resources/example.dmn', 'utf-8');
 
 function createNewTable() {
   openTable(newTableXML);
+}
+function createDemoTable() {
+  openTable(exampleXML);
 }
 
 function openTable(xml) {
@@ -109,6 +113,13 @@ $(document).on('ready', function() {
     e.preventDefault();
 
     createNewTable();
+  });
+
+  $('.use-demo').click(function(e) {
+    e.stopPropagation();
+    e.preventDefault();
+
+    createDemoTable();
   });
 
   var downloadLink = $('#js-download-table');

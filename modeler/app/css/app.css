@@ -92,3 +92,28 @@ body, html {
 .buttons a.active {
   opacity: 1.0;
 }
+
+.img {
+  width: 500px;
+}
+
+.create-new {
+  margin-bottom: 50px;
+  font-size: 22px;
+}
+
+.use-demo {
+  width: 540px;
+  margin: auto;
+  border: 1px solid gray;
+  padding: 20px;
+  cursor: pointer;
+  opacity: 0.5;
+  -webkit-transition: opacity 0.218s ease;
+  -o-transition: opacity 0.218s ease;
+  transition: opacity 0.218s ease;
+}
+
+.use-demo:hover {
+  opacity: 1;
+}
