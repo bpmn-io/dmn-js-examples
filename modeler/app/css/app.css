@@ -117,3 +117,7 @@ body, html {
 .use-demo:hover {
   opacity: 1;
 }
+
+.dmn-table {
+  padding: 20px;
+}
