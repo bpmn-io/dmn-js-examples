@@ -1,0 +1,14 @@
+{
+  "name": "Camunda",
+  "uri": "http://camunda.org/schema/1.0/dmn",
+  "prefix": "camunda",
+  "types": [
+    {
+      "name": "Clause",
+      "extends": [ "dmn:Clause" ],
+      "properties": [
+        { "name": "output", "type": "String", "isAttr": true }
+      ]
+    },
+  ]
+}

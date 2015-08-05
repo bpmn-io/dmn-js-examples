@@ -6,9 +6,7 @@
 var fs = require('fs');
 
 // inlined in result file via brfs
-var pizzaDiagram = fs.readFileSync(__dirname + '/../resources/simple.dmn', 'utf-8');
-
-
+var simpleDecision = fs.readFileSync(__dirname + '/../resources/simple.dmn', 'utf-8');
 
 // require the viewer, make sure you added it to your project
 // dependencies via npm install
@@ -16,7 +14,7 @@ var DmnViewer = require('dmn-js');
 
 var viewer = new DmnViewer({ container: '#table' });
 
-viewer.importXML(pizzaDiagram, function(err) {
+viewer.importXML(simpleDecision, function(err) {
   if (!err) {
     console.log('success!');
   } else {
