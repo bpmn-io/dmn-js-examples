@@ -34,6 +34,6 @@
     "load-grunt-tasks": "~0.3.0"
   },
   "dependencies": {
-    "dmn-js": "dmn-io/dmn-js"
+    "dmn-js": "^0.1.0"
   }
 }
