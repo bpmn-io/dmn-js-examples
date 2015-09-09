@@ -70,7 +70,7 @@ module.exports = function(grunt) {
             cwd: 'node_modules/dmn-js',
             src: 'fonts/**',
             expand: true,
-            dest: '<%= config.dist %>/css/'
+            dest: '<%= config.dist %>/'
           }
         ]
       },

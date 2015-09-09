@@ -10,7 +10,7 @@ var simpleDecision = fs.readFileSync(__dirname + '/../resources/simple.dmn', 'ut
 
 // require the viewer, make sure you added it to your project
 // dependencies via npm install
-var DmnViewer = require('dmn-js');
+var DmnViewer = require('dmn-js/lib/Viewer');
 
 var viewer = new DmnViewer({ container: '#table' });
 
