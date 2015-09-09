@@ -131,6 +131,15 @@ $(document).on('ready', function() {
     }
   });
 
+  var dirty = false;
+  function checkDirty() {
+    if (dirty) {
+      return 'The changes you performed on the table will be lost upon navigation.';
+    }
+  }
+
+  window.onbeforeunload = checkDirty;
+
   function setEncoded(link, name, data) {
     var encodedData = encodeURIComponent(data);
 
@@ -139,8 +148,10 @@ $(document).on('ready', function() {
         'href': 'data:application/xml;charset=UTF-8,' + encodedData,
         'download': name
       });
+      dirty = true;
     } else {
       link.removeClass('active');
+      dirty = false;
     }
   }
 
@@ -148,7 +159,6 @@ $(document).on('ready', function() {
     saveTable(function(err, xml) {
       setEncoded(downloadLink, 'table.dmn', err ? null : xml);
     });
-
   };
 
   renderer.on('commandStack.changed', exportArtifacts);
