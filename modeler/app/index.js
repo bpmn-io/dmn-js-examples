@@ -6,8 +6,13 @@ var $ = require('jquery'),
     DmnModeler = require('dmn-js/lib/Modeler'),
     camundaExtension = require('../resources/camunda.json');
 
+var dirty = false;
+var originalXML = '';
+var latestXML = '';
 
 var container = $('#js-drop-zone');
+
+var downloadLink = $('#js-download-table');
 
 var canvas = $('#js-table');
 
@@ -30,6 +35,27 @@ function createDemoTable() {
   openTable(exampleXML);
 }
 
+downloadLink.on('click', function() {
+  originalXML = latestXML;
+  dirty = false;
+});
+
+function setEncoded(link, name, data) {
+  var encodedData = encodeURIComponent(data);
+
+  dirty = data !== originalXML;
+  latestXML = data;
+
+  if (data) {
+    link.addClass('active').attr({
+      'href': 'data:application/xml;charset=UTF-8,' + encodedData,
+      'download': name
+    });
+  } else {
+    link.removeClass('active');
+  }
+}
+
 function openTable(xml) {
 
   renderer.importXML(xml, function(err) {
@@ -46,6 +72,12 @@ function openTable(xml) {
       container
         .removeClass('with-error')
         .addClass('with-table');
+
+      originalXML = xml;
+
+      saveTable(function(err, xml) {
+        setEncoded(downloadLink, 'table.dmn', err ? null : xml);
+      });
     }
 
 
@@ -62,8 +94,13 @@ function saveTable(done) {
 function registerFileDrop(container, callback) {
 
   function handleFileSelect(e) {
+
     e.stopPropagation();
     e.preventDefault();
+
+    if(dirty && !window.confirm('You made changes to the previous table, do you really want to load the new table and overwrite the changes?')) {
+      return;
+    }
 
     var files = e.dataTransfer.files;
 
@@ -122,8 +159,6 @@ $(document).on('ready', function() {
     createDemoTable();
   });
 
-  var downloadLink = $('#js-download-table');
-
   $('.buttons a').click(function(e) {
     if (!$(this).is('.active')) {
       e.preventDefault();
@@ -131,7 +166,6 @@ $(document).on('ready', function() {
     }
   });
 
-  var dirty = false;
   function checkDirty() {
     if (dirty) {
       return 'The changes you performed on the table will be lost upon navigation.';
@@ -139,21 +173,6 @@ $(document).on('ready', function() {
   }
 
   window.onbeforeunload = checkDirty;
-
-  function setEncoded(link, name, data) {
-    var encodedData = encodeURIComponent(data);
-
-    if (data) {
-      link.addClass('active').attr({
-        'href': 'data:application/xml;charset=UTF-8,' + encodedData,
-        'download': name
-      });
-      dirty = true;
-    } else {
-      link.removeClass('active');
-      dirty = false;
-    }
-  }
 
   var exportArtifacts = function() {
     saveTable(function(err, xml) {

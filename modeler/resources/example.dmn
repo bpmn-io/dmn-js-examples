@@ -32,7 +32,7 @@
     <typeDefinition>string</typeDefinition>
   </ItemDefinition>
   <Decision id="decision" name="CheckOrder">
-    <DecisionTable id="decisionTable" isComplete="true" isConsistent="true">
+    <DecisionTable id="decisionTable" isComplete="true" isConsistent="true" hitPolicy="FIRST">
       <clause id="clause1" name="CustomerStatus">
         <inputExpression id="inputExpression1">
           <itemDefinition href="#itemDefinition1" />
