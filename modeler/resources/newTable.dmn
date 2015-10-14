@@ -4,7 +4,7 @@
 </ItemDefinition>
   <ItemDefinition id="itemDefinition2">  <typeDefinition>string</typeDefinition>
 </ItemDefinition>
-  <Decision id="" name="">
+  <Decision id="decision" name="">
     <DecisionTable id="decisionTable" isComplete="true" isConsistent="true">
       <clause id="clause1" name="">
         <inputExpression id="inputExpression1">
