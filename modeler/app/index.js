@@ -172,6 +172,13 @@ $(document).on('ready', function() {
     }
   }
 
+  var href = window.location.href;
+  if(href.indexOf('?new') !== -1) {
+    createNewTable();
+  } else if(href.indexOf('?example') !== -1) {
+    createDemoTable();
+  }
+
   window.onbeforeunload = checkDirty;
 
   var exportArtifacts = function() {
