@@ -150,6 +150,9 @@ $(document).on('ready', function() {
     e.preventDefault();
 
     createNewTable();
+    if(window.history && typeof window.history.pushState === 'function') {
+      window.history.pushState({},'', window.location.href + '?new');
+    }
   });
 
   $('.use-demo').click(function(e) {
@@ -157,6 +160,9 @@ $(document).on('ready', function() {
     e.preventDefault();
 
     createDemoTable();
+    if(window.history && typeof window.history.pushState === 'function') {
+      window.history.pushState({},'', window.location.href + '?example');
+    }
   });
 
   $('.buttons a').click(function(e) {
