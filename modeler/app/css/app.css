@@ -130,8 +130,11 @@ body, html {
   opacity: 1;
 }
 
-.dmn-table {
+#js-table {
   padding: 20px;
+  padding-bottom: 60px;
+  position: absolute;
+  top: 0;
 }
 
 .project-logo {
