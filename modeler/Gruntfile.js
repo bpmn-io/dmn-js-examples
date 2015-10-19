@@ -98,6 +98,10 @@ module.exports = function(grunt) {
         files: [ '<%= config.sources %>/**/*.*' ],
         tasks: [ 'copy:app' ]
       },
+      less: {
+        files: ['node_modules/dmn-js/styles/**/*.less'],
+        tasks: ['less:styles']
+      },
       livereload: {
         options: {
           livereload: 9014
