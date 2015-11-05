@@ -3,8 +3,7 @@
 var fs = require('fs');
 
 var $ = require('jquery'),
-    DmnModeler = require('dmn-js/lib/Modeler'),
-    camundaExtension = require('../resources/camunda.json');
+    DmnModeler = require('dmn-js/lib/Modeler');
 
 var dirty = false;
 var originalXML = '';
@@ -19,10 +18,7 @@ var canvas = $('#js-table');
 var renderer = new DmnModeler({
   container: canvas,
   keyboard: { bindTo: document },
-  tableName: 'DMN Table',
-  moddleExtensions: {
-    camunda: camundaExtension
-  }
+  tableName: 'DMN Table'
 });
 
 var newTableXML = fs.readFileSync(__dirname + '/../resources/newTable.dmn', 'utf-8');
@@ -73,9 +69,8 @@ function openTable(xml) {
         .removeClass('with-error')
         .addClass('with-table');
 
-      originalXML = xml;
-
       saveTable(function(err, xml) {
+        originalXML = xml;
         setEncoded(downloadLink, 'table.dmn', err ? null : xml);
       });
     }
