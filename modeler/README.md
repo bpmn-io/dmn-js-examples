@@ -1,12 +1,12 @@
 # dmn-js Modeler Example
 
-This example uses [dmn-js](https://github.com/dmn-io/dmn-js) to implement a modeler for DMN tables.
+This example uses [dmn-js](https://github.com/bpmn-io/dmn-js) to implement a modeler for DMN tables.
 
 ## About
 
 This example is a node-style web application that builds a user interface around the dmn-js dmn modeler.
 
-![demo application screenshot](https://raw.githubusercontent.com/dmn-io/dmn-js-examples/master/modeler/docs/screenshot.png "Screenshot of the example application")
+![demo application screenshot](https://raw.githubusercontent.com/bpmn-io/dmn-js-examples/master/modeler/docs/screenshot.png "Screenshot of the example application")
 
 
 ## Building
@@ -19,7 +19,7 @@ To install all project dependencies execute
 npm install
 ```
 
-Build the application (including [dmn-js](https://github.com/dmn-io/dmn-js)) using [browserify](http://browserify.org) via
+Build the application (including [dmn-js](https://github.com/bpmn-io/dmn-js)) using [browserify](http://browserify.org) via
 
 ```
 grunt

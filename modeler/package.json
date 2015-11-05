@@ -5,7 +5,7 @@
   "main": "app/index.js",
   "repository": {
     "type": "git",
-    "url": "https://github.com/dmn-io/dmn-js-examples"
+    "url": "https://github.com/bpmn-io/dmn-js-examples"
   },
   "keywords": [
     "dmnjs-example"
@@ -16,8 +16,8 @@
   },
   "contributors": [
     {
-      "name": "dmn.io contributors",
-      "url": "https://github.com/dmn-io"
+      "name": "bpmn.io contributors",
+      "url": "https://github.com/bpmn-io"
     }
   ],
   "license": "MIT",
@@ -34,7 +34,7 @@
     "load-grunt-tasks": "~0.3.0"
   },
   "dependencies": {
-    "dmn-js": "dmn-io/dmn-js",
+    "dmn-js": "bpmn-io/dmn-js",
     "jquery": "^2.1.1",
     "lodash": "^3.0.0"
   }

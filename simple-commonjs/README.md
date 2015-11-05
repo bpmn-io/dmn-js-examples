@@ -1,8 +1,8 @@
 # dmn-js in CommonJS Applications
 
-[dmn-js](https://github.com/dmn-io/dmn-js) is a DMN modeling and rendering toolkit.
+[dmn-js](https://github.com/bpmn-io/dmn-js) is a DMN modeling and rendering toolkit.
 
-This example showcases how to integrate [dmn-js](https://github.com/dmn-io/dmn-js) into a node-style application.
+This example showcases how to integrate [dmn-js](https://github.com/bpmn-io/dmn-js) into a node-style application.
 It gets dmn-js via npm and packages the application for the browser using [browserify](http://browserify.org).
 
 
@@ -10,7 +10,7 @@ It gets dmn-js via npm and packages the application for the browser using [brows
 
 This example uses dmn-js to embed the example table into a web application.
 
-![demo application screenshot](https://raw.githubusercontent.com/dmn-io/dmn-js-examples/master/simple-commonjs/docs/screenshot.png "Screenshot of the example application")
+![demo application screenshot](https://raw.githubusercontent.com/bpmn-io/dmn-js-examples/master/simple-commonjs/docs/screenshot.png "Screenshot of the example application")
 
 
 ## Usage Summary
