@@ -34,7 +34,7 @@
     "load-grunt-tasks": "~0.3.0"
   },
   "dependencies": {
-    "dmn-js": "bpmn-io/dmn-js",
+    "dmn-js": "^0.2.0",
     "jquery": "^2.1.1",
     "lodash": "^3.0.0"
   }
