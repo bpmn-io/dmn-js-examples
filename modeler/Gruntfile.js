@@ -75,10 +75,10 @@ module.exports = function(grunt) {
       fonts: {
         files: [
           {
-            cwd: 'node_modules/dmn-js',
-            src: 'fonts/**',
+            cwd: 'node_modules/dmn-js/fonts/',
+            src: 'dmn-js*',
             expand: true,
-            dest: '<%= config.dist %>/css/'
+            dest: '<%= config.dist %>/fonts/'
           }
         ]
       },
