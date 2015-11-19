@@ -135,7 +135,7 @@ body, html {
 
 .icon-bpmn-io:before {
   content: '\e807';
-  font-family: "dmn-icon";
+  font-family: "dmn-js";
   font-style: normal;
   font-weight: normal;
   speak: none;
