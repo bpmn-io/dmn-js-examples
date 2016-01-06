@@ -34,7 +34,7 @@
     "load-grunt-tasks": "~0.3.0"
   },
   "dependencies": {
-    "dmn-js": "^0.3.0",
+    "dmn-js": "^0.4.0",
     "jquery": "^2.1.1",
     "lodash": "^3.0.0"
   }
