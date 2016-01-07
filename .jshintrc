@@ -17,7 +17,7 @@
   "maxdepth" : 5,
   "maxstatements" : 50,
   "maxcomplexity" : 13,
-  "maxlen" : 120,
+  "maxlen" : 150,
   "browser" : true,
   "node" : true,
   "debug": true,
