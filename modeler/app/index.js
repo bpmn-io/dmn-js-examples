@@ -93,7 +93,8 @@ function registerFileDrop(container, callback) {
     e.stopPropagation();
     e.preventDefault();
 
-    if(dirty && !window.confirm('You made changes to the previous table, do you really want to load the new table and overwrite the changes?')) {
+    if(dirty && !window.confirm('You made changes to the previous table, ' +
+          'do you really want to load the new table and overwrite the changes?')) {
       return;
     }
 
