@@ -1,7 +1,5 @@
 'use strict';
 
-var fs = require('fs');
-
 var $ = require('jquery'),
     DmnModeler = require('dmn-js/lib/Modeler');
 
@@ -18,11 +16,12 @@ var canvas = $('#js-table');
 var renderer = new DmnModeler({
   container: canvas,
   keyboard: { bindTo: document },
+  minColWidth: 200,
   tableName: 'DMN Table'
 });
 
-var newTableXML = fs.readFileSync(__dirname + '/../resources/newTable.dmn', 'utf-8');
-var exampleXML = fs.readFileSync(__dirname + '/../resources/example.dmn', 'utf-8');
+var newTableXML = require('../resources/newTable.dmn');
+var exampleXML = require('../resources/example.dmn');
 
 function createNewTable() {
   openTable(newTableXML);

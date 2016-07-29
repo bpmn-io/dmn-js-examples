@@ -7,7 +7,7 @@
 // along with all its dependencies to the web site
 var DmnViewer = window.DmnJS;
 
-var viewer = new DmnViewer({ container: '#canvas' });
+var viewer = new DmnViewer({ container: '#canvas', minColWidth: 200 });
 
 var xhr = new XMLHttpRequest();
 

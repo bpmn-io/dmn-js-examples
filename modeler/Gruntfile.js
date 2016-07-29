@@ -1,3 +1,5 @@
+'use strict';
+
 module.exports = function(grunt) {
 
   require('load-grunt-tasks')(grunt);
@@ -42,8 +44,7 @@ module.exports = function(grunt) {
                 return 'undefined';
             }
           }
-        },
-        transform: [ 'brfs' ]
+        }
       },
       watch: {
         options: {
