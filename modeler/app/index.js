@@ -21,7 +21,7 @@ var renderer = new DmnModeler({
 });
 
 var newTableXML = require('../resources/newTable.dmn');
-var exampleXML = require('../resources/example.dmn');
+var exampleXML = require('../resources/di.dmn');
 
 function createNewTable() {
   openTable(newTableXML);
@@ -68,13 +68,47 @@ function openTable(xml) {
         .removeClass('with-error')
         .addClass('with-table');
 
+      createTableSwitchButtons();
+
       saveTable(function(err, xml) {
         originalXML = xml;
         setEncoded(downloadLink, 'table.dmn', err ? null : xml);
       });
     }
+  });
+}
 
+function createTableSwitchButtons() {
 
+  var linkContainer = document.querySelector('body > ul.buttons');
+
+  // remove all links from previous dmn file
+  var allButtons = document.querySelectorAll('body > ul.buttons > li');
+  for(var i = 0; i < allButtons.length; i++) {
+    if(allButtons[i].querySelector('a').id !== 'js-download-table') {
+      allButtons[i].parentNode.removeChild(allButtons[i]);
+    }
+  }
+
+  var decisions = renderer.getDecisions();
+  decisions.forEach(function(decision, idx) {
+    var newNode = document.createElement('li');
+    newNode.innerHTML = '<a href title="switch table"></a>';
+    var link = newNode.childNodes[0];
+    if(idx > 0) {
+      link.setAttribute('class', 'active');
+    }
+    link.textContent = decision.name;
+    link.addEventListener('click', function(evt) {
+      evt.preventDefault();
+      var nodes = document.querySelectorAll('body > ul.buttons > li');
+      for(var i = 0; i < nodes.length; i++){
+        nodes[i].querySelector('a').setAttribute('class', 'active');
+      }
+      link.setAttribute('class', '');
+      renderer.showDecision(decision);
+    });
+    linkContainer.appendChild(newNode);
   });
 }
 
