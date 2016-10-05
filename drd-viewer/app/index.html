@@ -1,0 +1,56 @@
+<!DOCTYPE html><html>
+<head>
+  <title>dmn-js modeler demo</title>
+
+  <link rel="stylesheet" href="css/dmn-js.css" />
+  <link rel="stylesheet" href="css/app.css" />
+
+  <link rel="icon" href="img/favicon.ico">
+</head>
+<body>
+  <div class="content" id="js-drop-zone">
+
+    <div class="message intro">
+      <div class="note">
+        <div class="project-logo">
+          <span class="icon-bpmn-io"></span>
+        </div>
+        <div class="create-new">
+          Drop DMN table from your desktop or <a id="js-create-table" href>create a new table</a> to get started.
+        </div>
+        <div class="use-demo">
+          <img class="img" src="img/screencast.gif"><br />
+          Or continue modeling this example
+        </div>
+      </div>
+    </div>
+
+    <div class="message error">
+      <div class="note">
+        <p>Ooops, we could not display the DMN table.</p>
+
+        <div class="details">
+          <span>cause of the problem</span>
+          <pre></pre>
+        </div>
+      </div>
+    </div>
+
+    <div class="table" id="js-table"></div>
+  </div>
+
+  <ul class="buttons">
+    <li>
+      <a id="js-download-table" href title="download DMN table">
+        download
+      </a>
+    </li>
+    <li>
+      <a id="show-drd" href title="show DRD" class="active">
+        show DRD
+      </a>
+    </li>
+  </ul>
+
+  <script src="index.js"></script>
+</html>

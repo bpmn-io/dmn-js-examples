@@ -11,6 +11,7 @@ This repository contains a number of examples showing how use and integrate [dmn
 ## Intermediate
 
 * [modeler](https://github.com/bpmn-io/dmn-js-examples/tree/master/modeler) - a simple DMN modeler. Gains more features as time passes by.
+* [DRD Viewer](https://github.com/bpmn-io/dmn-js-examples/tree/master/drd-viewer) - a simple DRD Viewer. Double click on Decision elements to see the underlying decision table
 
 ## License
 
