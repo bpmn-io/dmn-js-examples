@@ -257,4 +257,13 @@
       </rule>
     </decisionTable>
   </decision>
+  <decision id="place" name="Place">
+    <extensionElements>
+      <biodi:bounds x="500" y="400" width="100" height="55" />
+    </extensionElements>
+    <variable name="place" typeRef="string" />
+    <literalExpression expressionLanguage="Javascript">
+      <text>calendar.getPlace(location)</text>
+    </literalExpression>
+  </decision>
 </definitions>
