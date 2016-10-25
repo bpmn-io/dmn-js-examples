@@ -1,0 +1,46 @@
+{
+  "name": "dmn-js-example-modeler",
+  "version": "0.1.0",
+  "description": "A simple modeler built with dmn-js",
+  "main": "app/index.js",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/bpmn-io/dmn-js-examples"
+  },
+  "keywords": [
+    "dmnjs-example"
+  ],
+  "author": {
+    "name": "Sebastian Stamm",
+    "url": "https://github.com/SebastianStamm"
+  },
+  "contributors": [
+    {
+      "name": "bpmn.io contributors",
+      "url": "https://github.com/bpmn-io"
+    }
+  ],
+  "license": "MIT",
+  "browserify": {
+    "transform": [
+        [ "stringify", { "global": true, "extensions": [ ".dmn", ".html", ".css" ] } ]
+      ]
+  },
+  "devDependencies": {
+    "bootstrap": "^3.3.5",
+    "grunt": "~0.4.4",
+    "grunt-browserify": "4.0.1",
+    "grunt-contrib-connect": "~0.6.0",
+    "grunt-contrib-copy": "~0.5.0",
+    "grunt-contrib-jshint": "~0.7.2",
+    "grunt-contrib-less": "^1.0.1",
+    "grunt-contrib-watch": "~0.5.0",
+    "load-grunt-tasks": "~0.3.0",
+    "stringify": "^3.1.0"
+  },
+  "dependencies": {
+    "dmn-js": "^0.7.0",
+    "jquery": "^2.1.1",
+    "lodash": "^3.0.0"
+  }
+}

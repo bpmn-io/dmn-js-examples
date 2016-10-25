@@ -1,7 +1,7 @@
 'use strict';
 
 var $ = require('jquery'),
-    DmnModeler = require('dmn-js/lib/NavigatedViewer');
+    DmnModeler = require('dmn-js/lib/Modeler');
 
 var dirty = false;
 var originalXML = '';
@@ -16,8 +16,11 @@ var canvas = $('#js-table');
 var renderer = new DmnModeler({
   container: canvas,
   keyboard: { bindTo: document },
-  minColWidth: 200,
-  tableName: 'DMN Table'
+  table: {
+    container: canvas,
+    minColWidth: 200,
+    tableName: 'DMN Table'
+  }
 });
 
 var newTableXML = require('../resources/newTable.dmn');
@@ -34,11 +37,6 @@ downloadLink.on('click', function() {
   originalXML = latestXML;
   dirty = false;
 });
-
-document.getElementById('show-drd').addEventListener('click', function(evt) {
-  evt.preventDefault();
-  renderer.showDRD();
-})
 
 function setEncoded(link, name, data) {
   var encodedData = encodeURIComponent(data);
