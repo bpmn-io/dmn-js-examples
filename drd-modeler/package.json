@@ -11,8 +11,8 @@
     "dmnjs-example"
   ],
   "author": {
-    "name": "Sebastian Stamm",
-    "url": "https://github.com/SebastianStamm"
+    "name": "Ricardo Matias",
+    "url": "https://github.com/ricardomatias"
   },
   "contributors": [
     {
@@ -39,7 +39,7 @@
     "stringify": "^3.1.0"
   },
   "dependencies": {
-    "dmn-js": "^0.7.0",
+    "dmn-js": "^0.8.0",
     "jquery": "^2.1.1",
     "lodash": "^3.0.0"
   }

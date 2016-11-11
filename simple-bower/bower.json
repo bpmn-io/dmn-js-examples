@@ -7,6 +7,6 @@
   "license": "MIT",
   "private": true,
   "dependencies": {
-    "dmn-js": "^0.7.0"
+    "dmn-js": "^0.8.0"
   }
 }

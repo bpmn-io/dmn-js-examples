@@ -76,10 +76,10 @@ module.exports = function(grunt) {
       fonts: {
         files: [
           {
-            cwd: 'node_modules/dmn-js/fonts/',
-            src: 'dmn-js*',
+            cwd: resolvePath('dmn-js', 'assets/dmn-font'),
+            src: ['**/*.*', '!**/*.js'],
             expand: true,
-            dest: '<%= config.dist %>/fonts/'
+            dest: '<%= config.dist %>/vendor/dmn-font'
           }
         ]
       },

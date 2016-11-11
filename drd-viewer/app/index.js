@@ -38,7 +38,7 @@ downloadLink.on('click', function() {
 document.getElementById('show-drd').addEventListener('click', function(evt) {
   evt.preventDefault();
   renderer.showDRD();
-})
+});
 
 function setEncoded(link, name, data) {
   var encodedData = encodeURIComponent(data);

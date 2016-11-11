@@ -73,13 +73,21 @@ module.exports = function(grunt) {
       }
     },
     copy: {
+      diagram_js: {
+        files: [
+          {
+            src: resolvePath('diagram-js', 'assets/diagram-js.css'),
+            dest: '<%= config.dist %>/css/diagram-js.css'
+          }
+        ]
+      },
       fonts: {
         files: [
           {
-            cwd: 'node_modules/dmn-js/fonts/',
-            src: 'dmn-js*',
+            cwd: resolvePath('dmn-js', 'assets/dmn-font'),
+            src: ['**/*.*', '!**/*.js'],
             expand: true,
-            dest: '<%= config.dist %>/fonts/'
+            dest: '<%= config.dist %>/vendor/dmn-font'
           }
         ]
       },
