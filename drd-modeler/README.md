@@ -6,7 +6,7 @@ This example uses [dmn-js](https://github.com/bpmn-io/dmn-js) to implement a mod
 
 This example is a node-style web application that builds a user interface around the dmn-js dmn modeler.
 
-![demo application screenshot](https://raw.githubusercontent.com/bpmn-io/dmn-js-examples/master/modeler/docs/screenshot.png "Screenshot of the example application")
+![demo application screenshot](https://raw.githubusercontent.com/bpmn-io/dmn-js-examples/master/drd-modeler/docs/screenshot.png "Screenshot of the example application")
 
 
 ## Building
