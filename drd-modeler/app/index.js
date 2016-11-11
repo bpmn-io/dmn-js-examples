@@ -190,4 +190,5 @@ $(document).on('ready', function() {
   };
 
   renderer.on('commandStack.changed', exportArtifacts);
+  renderer.table.on('commandStack.changed', exportArtifacts);
 });
