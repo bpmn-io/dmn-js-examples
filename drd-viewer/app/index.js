@@ -1,7 +1,7 @@
 'use strict';
 
 var $ = require('jquery'),
-    DmnModeler = require('dmn-js/lib/NavigatedViewer');
+    DmnViewer = require('dmn-js/lib/NavigatedViewer');
 
 var dirty = false;
 var originalXML = '';
@@ -13,11 +13,13 @@ var downloadLink = $('#js-download-table');
 
 var canvas = $('#js-table');
 
-var renderer = new DmnModeler({
+var renderer = new DmnViewer({
   container: canvas,
   keyboard: { bindTo: document },
-  minColWidth: 200,
-  tableName: 'DMN Table'
+  table: {
+    minColWidth: 200,
+    tableName: 'DMN Table'
+  }
 });
 
 var newTableXML = require('../resources/newTable.dmn');
