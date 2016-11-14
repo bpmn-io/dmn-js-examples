@@ -17,7 +17,6 @@ var renderer = new DmnModeler({
   container: canvas,
   keyboard: { bindTo: document },
   table: {
-    container: canvas,
     minColWidth: 200,
     tableName: 'DMN Table'
   }
