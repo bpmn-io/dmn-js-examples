@@ -23,8 +23,18 @@
   "license": "MIT",
   "browserify": {
     "transform": [
-        [ "stringify", { "global": true, "extensions": [ ".dmn", ".html", ".css" ] } ]
+      [
+        "stringify",
+        {
+          "global": true,
+          "extensions": [
+            ".dmn",
+            ".html",
+            ".css"
+          ]
+        }
       ]
+    ]
   },
   "devDependencies": {
     "bootstrap": "^3.3.5",
@@ -39,6 +49,7 @@
     "stringify": "^3.1.0"
   },
   "dependencies": {
+    "diagram-js": "^0.18.0",
     "dmn-js": "^0.8.0",
     "jquery": "^2.1.1",
     "lodash": "^3.0.0"
