@@ -50,7 +50,7 @@
   },
   "dependencies": {
     "diagram-js": "^0.18.0",
-    "dmn-js": "^0.8.0",
+    "dmn-js": "^0.10.0",
     "jquery": "^2.1.1",
     "lodash": "^3.0.0"
   }
