@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8" />
+    <title>Hello World</title>
+
+    <!-- required modeler styles -->
+    <link rel="stylesheet" href="http://unpkg.com/dmn-js@1.4.0-0/dist/assets/diagram-js.css">
+    <link rel="stylesheet" href="http://unpkg.com/dmn-js@1.4.0-0/dist/assets/dmn-js-drd.css">
+    <link rel="stylesheet" href="http://unpkg.com/dmn-js@1.4.0-0/dist/assets/dmn-js-decision-table.css">
+    <link rel="stylesheet" href="http://unpkg.com/dmn-js@1.4.0-0/dist/assets/dmn-js-decision-table-controls.css">
+    <link rel="stylesheet" href="http://unpkg.com/dmn-js@1.4.0-0/dist/assets/dmn-js-literal-expression.css">
+    <link rel="stylesheet" href="http://unpkg.com/dmn-js@1.4.0-0/dist/assets/dmn-font/css/dmn.css">
+
+    <!-- modeler distro -->
+    <script src="http://unpkg.com/dmn-js@1.4.0-0/dist/dmn-modeler.development.js"></script>
+
+    <!-- needed for this example only -->
+    <script src="https://unpkg.com/jquery@3.3.1/dist/jquery.js"></script>
+
+    <!-- example styles -->
+    <style>
+      html, body, #canvas {
+        height: 100%;
+        padding: 0;
+        margin: 0;
+      }
+
+      #save-button {
+        position: fixed;
+        bottom: 20px;
+        left: 20px;
+      }
+    </style>
+  </head>
+  <body>
+    <div id="canvas"></div>
+
+    <button id="save-button">print to console</button>
+
+    <script>
+
+      var diagramUrl = 'diagram.dmn';
+
+      // modeler instance
+      var dmnModeler = new DmnJS({
+        container: '#canvas',
+        keyboard: {
+          bindTo: window
+        }
+      });
+
+      /**
+       * Save diagram contents and print them to the console.
+       */
+      function exportDiagram() {
+
+        dmnModeler.saveXML({ format: true }, function(err, xml) {
+
+          if (err) {
+            return console.error('could not save DMN 1.1 diagram', err);
+          }
+
+          alert('Diagram exported. Check the developer tools!');
+
+          console.log('DIAGRAM', xml);
+        });
+      }
+
+      /**
+       * Open diagram in our modeler instance.
+       *
+       * @param {String} dmnXML diagram to display
+       */
+      function openDiagram(dmnXML) {
+
+        // import diagram
+        dmnModeler.importXML(dmnXML, function(err) {
+
+          if (err) {
+            return console.error('could not import DMN 1.1 diagram', err);
+          }
+
+          var activeEditor = dmnModeler.getActiveViewer();
+
+          // access active editor components
+          var canvas = activeEditor.get('canvas');
+
+          // zoom to fit full viewport
+          canvas.zoom('fit-viewport');
+        });
+      }
+
+
+      // load external diagram file via AJAX and open it
+      $.get(diagramUrl, openDiagram, 'text');
+
+      // wire save button
+      $('#save-button').click(exportDiagram);
+    </script>
+  </body>
+</html>
