@@ -1,12 +1,16 @@
 # dmn-js Examples
 
-This repository contains a number of examples showing how use and integrate [dmn-js](https://github.com/bpmn-io/dmn-js) it into your applications.
+This repository contains a number of examples showing how use and integrate
+[dmn-js](https://github.com/bpmn-io/dmn-js) it into your applications.
 
 
-## Basics
+## Starter
 
-* [simple-commonjs](https://github.com/bpmn-io/dmn-js-examples/tree/master/simple-commonjs) - an example showcasing how to load dmn-js via [npm](http://npmjs.org) in a node-style application and package it and the application code for the browser with [browserify](http://browserify.org).
+* [starter](./starter) - Getting started with [dmn-js](https://github.com/bpmn-io/dmn-js) using our [pre-packaged distribution](./pre-packaged).
 
+## Basic
+
+* [bundling](./bundling) - an example how to install dmn-js via [npm](http://npmjs.org), use it in a node-style application and package it and the application code for the browser with [Browserify](http://browserify.org).
 
 ## Intermediate
 
