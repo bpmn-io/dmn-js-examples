@@ -39,7 +39,7 @@
     "stringify": "^3.1.0"
   },
   "dependencies": {
-    "dmn-js": "^1.4.2",
+    "dmn-js": "^1.4.3",
     "jquery": "^2.1.1",
     "lodash": "^3.0.0"
   }
