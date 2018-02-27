@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8" />
+    <title>Hello World</title>
+
+    <!-- required viewer styles -->
+    <link rel="stylesheet" href="https://unpkg.com/dmn-js@2.0.0-alpha1/dist/assets/dmn-js-drd.css">
+    <link rel="stylesheet" href="https://unpkg.com/dmn-js@2.0.0-alpha1/dist/assets/dmn-js-decision-table.css">
+    <link rel="stylesheet" href="https://unpkg.com/dmn-js@2.0.0-alpha1/dist/assets/dmn-js-literal-expression.css">
+    <link rel="stylesheet" href="https://unpkg.com/dmn-js@2.0.0-alpha1/dist/assets/dmn-font/css/dmn.css">
+
+    <!-- viewer distro -->
+    <script src="https://unpkg.com/dmn-js@2.0.0-alpha1/dist/dmn-viewer.development.js"></script>
+
+    <!-- needed for this example only -->
+    <script src="https://unpkg.com/jquery@3.3.1/dist/jquery.js"></script>
+
+    <!-- example styles -->
+    <style>
+      .dmn-js-parent {
+        border: solid 1px #ccc;
+      }
+
+      .editor-tabs .tab {
+        display: inline-block;
+        white-space: no-wrap;
+        background: white;
+        padding: 5px;
+        margin-top: -1px;
+        margin-right: 2px;
+        border: solid 1px #CCC;
+        border-radius: 0 0 2px 2px;
+        padding: 8px;
+        font-family: 'Arial', sans-serif;
+        font-weight: bold;
+        cursor: default;
+        font-size: 14px;
+        color: #444;
+      }
+
+      .editor-tabs .tab:first-child {
+        margin-left: 0;
+      }
+
+      .editor-tabs .tab.active {
+        border-top-color: white;
+      }
+
+      .editor-tabs .tab.active,
+      .editor-tabs .tab:hover {
+        border-bottom: solid 3px #52b415;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="test-container">
+      <div class="editor-parent">
+        <div class="editor-container"></div>
+        <div class="editor-tabs"></div>
+      </div>
+    </div>
+
+    <script>
+      var CLASS_NAMES = {
+        drd: 'dmn-icon-lasso-tool',
+        decisionTable: 'dmn-icon-decision-table',
+        literalExpression: 'dmn-icon-literal-expression'
+      };
+
+      var $container = $('.editor-container');
+      var $tabs = $('.editor-tabs');
+
+      var diagramUrl = 'https://cdn.rawgit.com/bpmn-io/dmn-js-examples/4843ea28/starter/diagram.dmn';
+
+      // viewer instance
+      var dmnViewer = new DmnJS({
+        container: $container,
+        height: 500,
+        width: '100%'
+      });
+
+      $tabs.delegate('.tab', 'click', function(e) {
+        var viewIdx = parseInt(this.getAttribute('data-id'), 10);
+
+        var view = dmnViewer.getViews()[viewIdx];
+
+        dmnViewer.open(view);
+      });
+
+      dmnViewer.on('views.changed', function(event) {
+
+        var { views, activeView } = event;
+
+        // clear tabs
+        $tabs.empty();
+
+        views.forEach(function(v, idx) {
+
+          const className = CLASS_NAMES[v.type];
+
+          var tab = $(`
+            <div class="tab ${ v === activeView ? 'active' : ''}" data-id="${idx}">
+              <span class="${ className }"></span>
+              ${v.element.name || v.element.id}
+            </div>
+          `);
+
+          $tabs.append(tab);
+        });
+      });
+
+      /**
+       * Open diagram in our viewer instance.
+       *
+       * @param {String} dmnXML diagram to display
+       */
+      function openDiagram(dmnXML) {
+
+        // import diagram
+        dmnViewer.importXML(dmnXML, function(err) {
+
+          if (err) {
+            return console.error('could not import DMN 1.1 diagram', err);
+          }
+
+          // access active viewer components
+          var activeViewer = dmnViewer.getActiveViewer();
+
+          // access active editor components
+          var canvas = activeViewer.get('canvas');
+
+          // zoom to fit full viewport
+          canvas.zoom('fit-viewport');
+        });
+      }
+
+
+      // load external diagram file via AJAX and open it
+      $.get(diagramUrl, openDiagram, 'text');
+    </script>
+  </body>
+</html>

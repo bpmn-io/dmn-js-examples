@@ -1,36 +1,55 @@
 # dmn-js Modeler Example
 
-This example uses [dmn-js](https://github.com/bpmn-io/dmn-js) to implement a modeler for DMN tables.
+This example showcases using the API of dmn-js to build a tabbed modeler. It builds upon the [starter example](https://github.com/bpmn-io/dmn-js-examples/tree/master/starter).
 
-## About
+[![modeler example screenshot](./modeler.png)](https://rawgit.com/dmn-io/dmn-js-examples/master/modeler/modeler.html)
 
-This example is a node-style web application that builds a user interface around the dmn-js dmn modeler.
+## Usage summary
 
-![demo application screenshot](https://raw.githubusercontent.com/bpmn-io/dmn-js-examples/master/modeler/docs/screenshot.png "Screenshot of the example application")
+Open a view using `#getViews` and `#open` when clicking on a tab.
 
+```javascript
+$('.editor-tabs').delegate('.tab', 'click', function(e) {
 
-## Building
+  // get index of view from clicked tab
+  var viewIdx = parseInt(this.getAttribute('data-id'), 10);
 
-You need a [NodeJS](http://nodejs.org) development stack with [npm](https://npmjs.org) and [grunt](http://gruntjs.com) installed to build the project.
+  // get view using index
+  var view = dmnModeler.getViews()[viewIdx];
 
-To install all project dependencies execute
-
-```
-npm install
-```
-
-Build the application (including [dmn-js](https://github.com/bpmn-io/dmn-js)) using [browserify](http://browserify.org) via
-
-```
-grunt
+  // open view
+  dmnModeler.open(view);
+});
 ```
 
-You may also spawn a development setup by executing
+Update tabs whenever the views change.
 
+```javascript
+dmnModeler.on('views.changed', function(event) {
+
+  // get views from event
+  var { views, activeView } = event;
+
+  // clear tabs
+  $tabs.empty();
+
+  // create a new tab for each view
+  views.forEach(function(v, idx) {
+
+    const className = CLASS_NAMES[v.type];
+
+    var tab = $(`
+      <div class="tab ${ v === activeView ? 'active' : ''}" data-id="${idx}">
+        <span class="${ className }"></span>
+        ${v.element.name || v.element.id}
+      </div>
+    `);
+
+    $tabs.append(tab);
+  });
+});
 ```
-grunt auto-build
-```
 
-Both tasks generate the distribution ready client-side modeler application into the `dist` folder.
+## Licence
 
-Serve the application locally or via a web server (nginx, apache, embedded).
+MIT

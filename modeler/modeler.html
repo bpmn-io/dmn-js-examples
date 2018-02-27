@@ -1,0 +1,188 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8" />
+    <title>Hello World</title>
+
+    <!-- required modeler styles -->
+    <link rel="stylesheet" href="https://unpkg.com/dmn-js@2.0.0-alpha1/dist/assets/diagram-js.css">
+    <link rel="stylesheet" href="https://unpkg.com/dmn-js@2.0.0-alpha1/dist/assets/dmn-js-drd.css">
+    <link rel="stylesheet" href="https://unpkg.com/dmn-js@2.0.0-alpha1/dist/assets/dmn-js-decision-table.css">
+    <link rel="stylesheet" href="https://unpkg.com/dmn-js@2.0.0-alpha1/dist/assets/dmn-js-decision-table-controls.css">
+    <link rel="stylesheet" href="https://unpkg.com/dmn-js@2.0.0-alpha1/dist/assets/dmn-js-literal-expression.css">
+    <link rel="stylesheet" href="https://unpkg.com/dmn-js@2.0.0-alpha1/dist/assets/dmn-font/css/dmn.css">
+
+    <!-- modeler distro -->
+    <script src="https://unpkg.com/dmn-js@2.0.0-alpha1/dist/dmn-modeler.development.js"></script>
+
+    <!-- needed for this example only -->
+    <script src="https://unpkg.com/jquery@3.3.1/dist/jquery.js"></script>
+
+    <!-- example styles -->
+    <style>
+      .dmn-js-parent {
+        border: solid 1px #ccc;
+      }
+
+      .editor-tabs .tab {
+        display: inline-block;
+        white-space: no-wrap;
+        background: white;
+        padding: 5px;
+        margin-top: -1px;
+        margin-right: 2px;
+        border: solid 1px #CCC;
+        border-radius: 0 0 2px 2px;
+        padding: 8px;
+        font-family: 'Arial', sans-serif;
+        font-weight: bold;
+        cursor: default;
+        font-size: 14px;
+        color: #444;
+      }
+
+      .editor-tabs .tab:first-child {
+        margin-left: 0;
+      }
+
+      .editor-tabs .tab.active {
+        border-top-color: white;
+      }
+
+      .editor-tabs .tab.active,
+      .editor-tabs .tab:hover {
+        border-bottom: solid 3px #52b415;
+      }
+
+      #save-button {
+        position: absolute;
+        bottom: 10px;
+        left: 10px;
+        background: white;
+        padding: 5px;
+        border: solid 1px #CCC;
+        border-radius: 2px;
+        padding: 8px;
+        font-family: 'Arial', sans-serif;
+        font-weight: bold;
+        cursor: default;
+        font-size: 14px;
+        color: #444;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="test-container">
+      <div class="editor-parent">
+        <div class="editor-container"></div>
+        <div class="editor-tabs"></div>
+      </div>
+    </div>
+
+    <button id="save-button">print to console</button>
+
+    <script>
+
+      var diagramUrl = 'https://cdn.rawgit.com/bpmn-io/dmn-js-examples/4843ea28/starter/diagram.dmn';
+
+      var CLASS_NAMES = {
+        drd: 'dmn-icon-lasso-tool',
+        decisionTable: 'dmn-icon-decision-table',
+        literalExpression: 'dmn-icon-literal-expression'
+      };
+
+      var $container = $('.editor-container');
+      var $tabs = $('.editor-tabs');
+
+      var diagramUrl = 'https://cdn.rawgit.com/bpmn-io/dmn-js-examples/4843ea28/starter/diagram.dmn';
+
+      // modeler instance
+      var dmnModeler = new DmnJS({
+        container: $container,
+        height: 500,
+        width: '100%',
+        keyboard: {
+          bindTo: window
+        }
+      });
+
+      $tabs.delegate('.tab', 'click', function(e) {
+        var viewIdx = parseInt(this.getAttribute('data-id'), 10);
+
+        var view = dmnModeler.getViews()[viewIdx];
+
+        dmnModeler.open(view);
+      });
+
+      dmnModeler.on('views.changed', function(event) {
+
+        var { views, activeView } = event;
+
+        // clear tabs
+        $tabs.empty();
+
+        views.forEach(function(v, idx) {
+
+          const className = CLASS_NAMES[v.type];
+
+          var tab = $(`
+            <div class="tab ${ v === activeView ? 'active' : ''}" data-id="${idx}">
+              <span class="${ className }"></span>
+              ${v.element.name || v.element.id}
+            </div>
+          `);
+
+          $tabs.append(tab);
+        });
+      });
+
+      /**
+       * Save diagram contents and print them to the console.
+       */
+      function exportDiagram() {
+
+        dmnModeler.saveXML({ format: true }, function(err, xml) {
+
+          if (err) {
+            return console.error('could not save DMN 1.1 diagram', err);
+          }
+
+          alert('Diagram exported. Check the developer tools!');
+
+          console.log('DIAGRAM', xml);
+        });
+      }
+
+      /**
+       * Open diagram in our modeler instance.
+       *
+       * @param {String} dmnXML diagram to display
+       */
+      function openDiagram(dmnXML) {
+
+        // import diagram
+        dmnModeler.importXML(dmnXML, function(err) {
+
+          if (err) {
+            return console.error('could not import DMN 1.1 diagram', err);
+          }
+
+          var activeEditor = dmnModeler.getActiveViewer();
+
+          // access active editor components
+          var canvas = activeEditor.get('canvas');
+
+          // zoom to fit full viewport
+          canvas.zoom('fit-viewport');
+        });
+      }
+
+
+      // load external diagram file via AJAX and open it
+      $.get(diagramUrl, openDiagram, 'text');
+
+      // wire save button
+      $('#save-button').click(exportDiagram);
+    </script>
+  </body>
+</html>

@@ -14,7 +14,7 @@ This repository contains a number of examples showing how use and integrate
 
 ## Intermediate
 
-* [modeler](https://github.com/bpmn-io/dmn-js-examples/tree/master/modeler) - a simple DMN modeler. Gains more features as time passes by.
+* [modeler](https://github.com/bpmn-io/dmn-js-examples/tree/master/modeler) - an example how to build a tabbed modeler using the dmn-js API.
 
 ## License
 
