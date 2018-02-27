@@ -1,10 +1,15 @@
 # dmn-js Modeler Example
 
-This example showcases using the API of dmn-js to build a tabbed modeler. It builds upon the [starter example](https://github.com/bpmn-io/dmn-js-examples/tree/master/starter).
+This example showcases using the API of dmn-js to build a tabbed modeler. 
+
+It builds upon the [starter example](https://github.com/bpmn-io/dmn-js-examples/tree/master/starter).
 
 [![modeler example screenshot](./modeler.png)](https://rawgit.com/dmn-io/dmn-js-examples/master/modeler/modeler.html)
 
-## Usage summary
+[Try it out](https://rawgit.com/bpmn-io/dmn-js-examples/master/modeler/modeler.html).
+
+
+## Usage Summary
 
 Open a view using `#getViews` and `#open` when clicking on a tab.
 
