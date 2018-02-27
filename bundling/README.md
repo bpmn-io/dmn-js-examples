@@ -51,7 +51,7 @@ dmn-js to cross-browser understandable ES5.
 Ensure you got the relevant babel plug-ins needed for dmn-js installed:
 
 ```
-npm i --save-dev babel-plugin-inferno babel-plugin-transform-object-rest-spread babel-plugin-transform-class-properties
+npm i --save-dev babel-plugin-inferno babel-plugin-transform-object-rest-spread babel-plugin-transform-class-properties babel-plugin-transform-object-assign
 ```
 
 Bundle the `src/app.js` file for the browser with webpack:
