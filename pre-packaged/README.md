@@ -32,6 +32,7 @@ Download the complete [viewer example](https://rawgit.com/bpmn-io/dmn-js-example
 
 ```html
 <link rel="stylesheet" href="https://unpkg.com/dmn-js@4.3.0/dist/assets/diagram-js.css">
+<link rel="stylesheet" href="https://unpkg.com/dmn-js@4.3.0/dist/assets/dmn-js-shared.css">
 <link rel="stylesheet" href="https://unpkg.com/dmn-js@4.3.0/dist/assets/dmn-js-drd.css">
 <link rel="stylesheet" href="https://unpkg.com/dmn-js@4.3.0/dist/assets/dmn-js-decision-table.css">
 <link rel="stylesheet" href="https://unpkg.com/dmn-js@4.3.0/dist/assets/dmn-js-decision-table-controls.css">
