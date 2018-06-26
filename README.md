@@ -10,7 +10,7 @@ This repository contains a number of examples showing how use and integrate
 
 ## Basic
 
-* [bundling](./bundling) - an example how to install dmn-js via [npm](http://npmjs.org), use it in a node-style application and package it and the application code for the browser with [webpack](https://webpack.js.org).
+* [bundling](./bundling) - an example how to install dmn-js via [npm](http://npmjs.org), use it in a node-style application and package it and the application code for the browser with [Webpack](https://webpack.js.org).
 
 ## Intermediate
 

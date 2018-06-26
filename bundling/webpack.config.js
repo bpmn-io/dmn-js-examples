@@ -10,21 +10,6 @@ module.exports = {
   module: {
     rules: [
       {
-        test: /\.js$/,
-        use: {
-          loader: 'babel-loader',
-          options: {
-            babelrc: false,
-            plugins: [
-              'inferno',
-              'transform-object-rest-spread',
-              'transform-class-properties'
-            ],
-            presets: [ 'env' ]
-          }
-        }
-      },
-      {
         test: /\.dmn$/,
         use: {
           loader: 'raw-loader'
