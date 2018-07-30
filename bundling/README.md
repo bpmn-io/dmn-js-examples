@@ -51,8 +51,10 @@ Webpack, as seen in [the example](./webpack.config.js) understands ES modules ou
 Bundle the `src/app.js` file for the browser with webpack:
 
 ```
-webpack
+webpack ./src/app.js -o public/app.bundled.js --mode development
 ```
+
+To learn about more bundling options, checkout the [webpack-cli documentation](https://webpack.js.org/api/cli/).
 
 __Note:__ You may use another bundling setup, too. Options include, among others, Rollup or Browserify + Babelify.
 
