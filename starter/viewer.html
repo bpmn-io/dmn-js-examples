@@ -52,14 +52,19 @@
             return console.error('could not import DMN 1.1 diagram', err);
           }
 
-          // access active viewer components
-          var activeViewer = dmnViewer.getActiveViewer();
+          // fetch currently active view
+          var activeView = dmnModeler.getActiveView();
 
-          // access active editor components
-          var canvas = activeViewer.get('canvas');
-
-          // zoom to fit full viewport
-          canvas.zoom('fit-viewport');
+          // apply initial logic in DRD view
+          if (activeView.type === 'drd') {
+            var activeEditor = dmnModeler.getActiveViewer();
+          
+            // access active editor components
+            var canvas = activeEditor.get('canvas');
+            
+            // zoom to fit full viewport
+            canvas.zoom('fit-viewport');
+          }
         });
       }
 
