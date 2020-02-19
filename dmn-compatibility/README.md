@@ -26,6 +26,8 @@ async function importXML(xml) {
     }
   });
 }
+
+await importXML(someDMN_11XML);
 ```
 
 ## Usage
