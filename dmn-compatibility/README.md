@@ -1,6 +1,8 @@
 # DMN Compatibility Example
 
-An example of using [dmn-js](https://github.com/bpmn-io/dmn-js) and [dmn-migrate](https://github.com/bpmn-io/dmn-migrate) to display DMN 1.1, 1.2 and 1.3 diagrams. This example uses dmn-js@8 which can only open DMN 1.3 diagrams. Therefore, DMN 1.1 and 1.2 diagrams have to be migrated to DMN 1.3 before they can be opened.
+__Starting with `dmn-js@8` the library opens and produces DMN 1.3 files, only.__
+
+This example shows how [dmn-js](https://github.com/bpmn-io/dmn-js) and [dmn-migrate](https://github.com/bpmn-io/dmn-migrate) can be combined to consume older DMN files (DMN 1.1, DMN 1.2), too. To achieve this, these files are migrated to valid DMN 1.3 diagrams before they get opened in the DMN toolkit.
 
 ```javascript
 const dmnModeler = new DmnModeler({
