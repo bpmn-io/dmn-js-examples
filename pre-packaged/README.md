@@ -18,12 +18,12 @@ Download or simply include the relevant dependencies into your website:
 #### Viewer
 
 ```html
-<link rel="stylesheet" href="https://unpkg.com/dmn-js@8.0.2/dist/assets/dmn-js-drd.css">
-<link rel="stylesheet" href="https://unpkg.com/dmn-js@8.0.2/dist/assets/dmn-js-decision-table.css">
-<link rel="stylesheet" href="https://unpkg.com/dmn-js@8.0.2/dist/assets/dmn-js-literal-expression.css">
-<link rel="stylesheet" href="https://unpkg.com/dmn-js@8.0.2/dist/assets/dmn-font/css/dmn.css">
+<link rel="stylesheet" href="https://unpkg.com/dmn-js@7.4.4/dist/assets/dmn-js-drd.css">
+<link rel="stylesheet" href="https://unpkg.com/dmn-js@7.4.4/dist/assets/dmn-js-decision-table.css">
+<link rel="stylesheet" href="https://unpkg.com/dmn-js@7.4.4/dist/assets/dmn-js-literal-expression.css">
+<link rel="stylesheet" href="https://unpkg.com/dmn-js@7.4.4/dist/assets/dmn-font/css/dmn.css">
 
-<script src="https://unpkg.com/dmn-js@8.0.2/dist/dmn-viewer.development.js"></script>
+<script src="https://unpkg.com/dmn-js@7.4.4/dist/dmn-viewer.development.js"></script>
 ```
 
 Download the complete [viewer example](https://cdn.staticaly.com/gh/bpmn-io/dmn-js-examples/master/starter/viewer.html).
@@ -31,15 +31,15 @@ Download the complete [viewer example](https://cdn.staticaly.com/gh/bpmn-io/dmn-
 #### Modeler
 
 ```html
-<link rel="stylesheet" href="https://unpkg.com/dmn-js@8.0.2/dist/assets/diagram-js.css">
-<link rel="stylesheet" href="https://unpkg.com/dmn-js@8.0.2/dist/assets/dmn-js-shared.css">
-<link rel="stylesheet" href="https://unpkg.com/dmn-js@8.0.2/dist/assets/dmn-js-drd.css">
-<link rel="stylesheet" href="https://unpkg.com/dmn-js@8.0.2/dist/assets/dmn-js-decision-table.css">
-<link rel="stylesheet" href="https://unpkg.com/dmn-js@8.0.2/dist/assets/dmn-js-decision-table-controls.css">
-<link rel="stylesheet" href="https://unpkg.com/dmn-js@8.0.2/dist/assets/dmn-js-literal-expression.css">
-<link rel="stylesheet" href="https://unpkg.com/dmn-js@8.0.2/dist/assets/dmn-font/css/dmn.css">
+<link rel="stylesheet" href="https://unpkg.com/dmn-js@7.4.4/dist/assets/diagram-js.css">
+<link rel="stylesheet" href="https://unpkg.com/dmn-js@7.4.4/dist/assets/dmn-js-shared.css">
+<link rel="stylesheet" href="https://unpkg.com/dmn-js@7.4.4/dist/assets/dmn-js-drd.css">
+<link rel="stylesheet" href="https://unpkg.com/dmn-js@7.4.4/dist/assets/dmn-js-decision-table.css">
+<link rel="stylesheet" href="https://unpkg.com/dmn-js@7.4.4/dist/assets/dmn-js-decision-table-controls.css">
+<link rel="stylesheet" href="https://unpkg.com/dmn-js@7.4.4/dist/assets/dmn-js-literal-expression.css">
+<link rel="stylesheet" href="https://unpkg.com/dmn-js@7.4.4/dist/assets/dmn-font/css/dmn.css">
 
-<script src="https://unpkg.com/dmn-js@8.0.2/dist/dmn-modeler.development.js"></script>
+<script src="https://unpkg.com/dmn-js@7.4.4/dist/dmn-modeler.development.js"></script>
 ```
 
 Download the complete [modeler example](https://cdn.staticaly.com/gh/bpmn-io/dmn-js-examples/master/starter/modeler.html).
