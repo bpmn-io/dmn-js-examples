@@ -5,6 +5,7 @@
     <title>Hello World</title>
 
     <!-- required viewer styles -->
+    <link rel="stylesheet" href="https://unpkg.com/dmn-js@9.2.1/dist/assets/dmn-js-shared.css">
     <link rel="stylesheet" href="https://unpkg.com/dmn-js@9.2.1/dist/assets/dmn-js-drd.css">
     <link rel="stylesheet" href="https://unpkg.com/dmn-js@9.2.1/dist/assets/dmn-js-decision-table.css">
     <link rel="stylesheet" href="https://unpkg.com/dmn-js@9.2.1/dist/assets/dmn-js-literal-expression.css">
@@ -58,10 +59,10 @@
           // apply initial logic in DRD view
           if (activeView.type === 'drd') {
             var activeEditor = dmnModeler.getActiveViewer();
-          
+
             // access active editor components
             var canvas = activeEditor.get('canvas');
-            
+
             // zoom to fit full viewport
             canvas.zoom('fit-viewport');
           }

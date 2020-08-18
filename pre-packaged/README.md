@@ -21,6 +21,7 @@ Download or simply include the relevant dependencies into your website:
 <link rel="stylesheet" href="https://unpkg.com/dmn-js@9.2.1/dist/assets/dmn-js-drd.css">
 <link rel="stylesheet" href="https://unpkg.com/dmn-js@9.2.1/dist/assets/dmn-js-decision-table.css">
 <link rel="stylesheet" href="https://unpkg.com/dmn-js@9.2.1/dist/assets/dmn-js-literal-expression.css">
+<link rel="stylesheet" href="https://unpkg.com/dmn-js@9.2.1/dist/assets/dmn-js-shared.css">
 <link rel="stylesheet" href="https://unpkg.com/dmn-js@9.2.1/dist/assets/dmn-font/css/dmn.css">
 
 <script src="https://unpkg.com/dmn-js@9.2.1/dist/dmn-viewer.development.js"></script>
