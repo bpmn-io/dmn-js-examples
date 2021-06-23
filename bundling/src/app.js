@@ -2,25 +2,26 @@
 
 import dishDecision from '../resources/dish-decision.dmn';
 
-// require the viewer, make sure you added it to your project
-// dependencies via npm install --save dmn-js
 import DmnViewer from 'dmn-js';
 
 
-var dmnJS = new DmnViewer({
-  container: '#canvas'
-});
+async function asyncImportXml(xml) {
+  const dmnJS = new DmnViewer({
+    container: '#canvas'
+  });
 
-dmnJS.importXML(dishDecision, function(err) {
+  try {
+    const { warnings } = await dmnJS.importXML(xml);
 
-  if (!err) {
-    console.log('success!');
+    console.log(`Successful import with ${warnings.length} warnings`);
 
     dmnJS
       .getActiveViewer()
         .get('canvas')
           .zoom('fit-viewport');
-  } else {
+  } catch (err) {
     console.log('something went wrong:', err);
   }
-});
+}
+
+asyncImportXml(dishDecision);
