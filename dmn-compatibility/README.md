@@ -20,11 +20,11 @@ async function importXML(xml) {
   xml = await migrateDiagram(xml);
 
   // (1.2) import DMN 1.3 diagram
-  dmnModeler.importXML(xml, err => {
-    if (err) {
-      console.error(err);
-    }
-  });
+  try {
+    await dmnModeler.importXML(xml);
+  } catch (err) {
+    console.log(err);
+  }
 }
 
 await importXML(someDMN_11XML);
