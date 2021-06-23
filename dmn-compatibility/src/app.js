@@ -6,6 +6,7 @@ import fileDrop from 'file-drops';
 
 import { migrateDiagram } from '@bpmn-io/dmn-migrate';
 
+
 const dmnModeler = new DmnModeler({
   container: '#canvas'
 });
@@ -17,11 +18,11 @@ async function importXML(xml) {
   xml = await migrateDiagram(xml);
 
   // (1.2) import DMN 1.3 diagram
-  dmnModeler.importXML(xml, err => {
-    if (err) {
-      console.error(err);
-    }
-  });
+  try {
+    await dmnModeler.importXML(xml);
+  } catch (err) {
+    console.log(err);
+  }
 }
 
 importXML(diagram);
@@ -29,6 +30,6 @@ importXML(diagram);
 // drag and drop DMN diagrams
 document.querySelector('#canvas').addEventListener('dragover', fileDrop(files => {
   const { contents } = files[ 0 ];
-  
+
   importXML(contents);
 }));
