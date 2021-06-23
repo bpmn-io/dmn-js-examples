@@ -23,25 +23,22 @@ npm install --save dmn-js
 Use it in your application
 
 ```javascript
-var DmnViewer = require('dmn-js');
-
-var dmnJS = new DmnViewer({
+const dmnJS = new DmnViewer({
   container: '#canvas'
 });
 
-dmnJS.importXML(pizzaDiagram, function(err) {
+try {
+  const { warnings } = await dmnJS.importXML(xml);
 
-  if (!err) {
-    console.log('success!');
+  console.log(`Successful import with ${warnings.length} warnings`);
 
-    dmnJS
-      .getActiveViewer()
-        .get('canvas')
-          .zoom('fit-viewport');
-  } else {
-    console.log('something went wrong:', err);
-  }
-});
+  dmnJS
+    .getActiveViewer()
+      .get('canvas')
+        .zoom('fit-viewport');
+} catch (err) {
+  console.log('something went wrong:', err);
+}
 ```
 
 Add an appropriate loader that understands the ES modules that [dmn-js](http://github.com/bpmn-io/dmn-js) ships with.
