@@ -2,7 +2,7 @@
 <html>
   <head>
     <meta charset="UTF-8" />
-    <title>Hello World</title>
+    <title>dmn-js modeler example</title>
 
     <!-- required modeler styles -->
     <link rel="stylesheet" href="https://unpkg.com/dmn-js@11.0.1/dist/assets/diagram-js.css">
@@ -52,19 +52,19 @@
 
     <script>
 
-      var diagramUrl = 'https://cdn.staticaly.com/gh/bpmn-io/dmn-js-examples/a71e16/starter/diagram.dmn';
+      const diagramUrl = 'https://cdn.staticaly.com/gh/bpmn-io/dmn-js-examples/a71e16/starter/diagram.dmn';
 
-      var CLASS_NAMES = {
+      const CLASS_NAMES = {
         drd: 'dmn-icon-lasso-tool',
         decisionTable: 'dmn-icon-decision-table',
         literalExpression: 'dmn-icon-literal-expression'
       };
 
-      var $container = $('.editor-container');
-      var $tabs = $('.editor-tabs');
+      const $container = $('.editor-container');
+      const $tabs = $('.editor-tabs');
 
       // modeler instance
-      var dmnModeler = new DmnJS({
+      const dmnModeler = new DmnJS({
         container: $container,
         height: 500,
         width: '100%',
@@ -73,26 +73,36 @@
         }
       });
 
-      $tabs.delegate('.tab', 'click', function(e) {
-        var viewIdx = parseInt(this.getAttribute('data-id'), 10);
+      $tabs.delegate('.tab', 'click', async function(e) {
 
-        var view = dmnModeler.getViews()[viewIdx];
+        // get index of view from clicked tab
+        const viewIdx = parseInt(this.getAttribute('data-id'), 10);
 
-        dmnModeler.open(view);
+        // get view using index
+        const view = dmnModeler.getViews()[viewIdx];
+
+        // open view
+        try {
+          await dmnModeler.open(view);
+        } catch (err) {
+          console.error('error opening tab', err);
+        }
       });
 
       dmnModeler.on('views.changed', function(event) {
 
-        var { views, activeView } = event;
+        // get views from event
+        const { views, activeView } = event;
 
         // clear tabs
         $tabs.empty();
 
+        // create a new tab for each view
         views.forEach(function(v, idx) {
 
           const className = CLASS_NAMES[v.type];
 
-          var tab = $(`
+          const tab = $(`
             <div class="tab ${ v === activeView ? 'active' : ''}" data-id="${idx}">
               <span class="${ className }"></span>
               ${v.element.name || v.element.id}
@@ -106,18 +116,16 @@
       /**
        * Save diagram contents and print them to the console.
        */
-      function exportDiagram() {
-
-        dmnModeler.saveXML({ format: true }, function(err, xml) {
-
-          if (err) {
-            return console.error('could not save DMN 1.1 diagram', err);
-          }
+      async function exportDiagram() {
+        try {
+          const { xml } = await dmnModeler.saveXML({ format: true });
 
           alert('Diagram exported. Check the developer tools!');
 
           console.log('DIAGRAM', xml);
-        });
+        } catch (err) {
+          console.error('could not save DMN 1.3 diagram', err);
+        }
       }
 
       /**
@@ -125,23 +133,24 @@
        *
        * @param {String} dmnXML diagram to display
        */
-      function openDiagram(dmnXML) {
+      async function openDiagram(dmnXML) {
 
         // import diagram
-        dmnModeler.importXML(dmnXML, function(err) {
-
-          if (err) {
-            return console.error('could not import DMN 1.1 diagram', err);
-          }
-
-          var activeEditor = dmnModeler.getActiveViewer();
+        try {
+          const { warnings } = await dmnModeler.importXML(dmnXML);
+          console.log(`diagram successfully imported with ${warnings.length} warnings`);
 
           // access active editor components
-          var canvas = activeEditor.get('canvas');
+          const activeEditor = dmnModeler.getActiveViewer();
+
+          const canvas = activeEditor.get('canvas');
 
           // zoom to fit full viewport
           canvas.zoom('fit-viewport');
-        });
+
+        } catch (err) {
+          console.error('could not import DMN 1.3 diagram', err);
+        }
       }
 
 

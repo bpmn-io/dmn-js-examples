@@ -1,6 +1,6 @@
 # dmn-js Modeler Example
 
-This example showcases using the API of dmn-js to build a tabbed modeler. 
+This example showcases using the API of dmn-js to build a tabbed modeler.
 
 It builds upon the [starter example](https://github.com/bpmn-io/dmn-js-examples/tree/master/starter).
 
@@ -17,13 +17,17 @@ Open a view using `#getViews` and `#open` when clicking on a tab.
 $('.editor-tabs').delegate('.tab', 'click', function(e) {
 
   // get index of view from clicked tab
-  var viewIdx = parseInt(this.getAttribute('data-id'), 10);
+  const viewIdx = parseInt(this.getAttribute('data-id'), 10);
 
   // get view using index
-  var view = dmnModeler.getViews()[viewIdx];
+  const view = dmnModeler.getViews()[viewIdx];
 
   // open view
-  dmnModeler.open(view);
+  try {
+    await dmnModeler.open(view);
+  } catch (err) {
+    console.error('error opening tab', err);
+  }
 });
 ```
 
@@ -33,7 +37,7 @@ Update tabs whenever the views change.
 dmnModeler.on('views.changed', function(event) {
 
   // get views from event
-  var { views, activeView } = event;
+  const { views, activeView } = event;
 
   // clear tabs
   $tabs.empty();
@@ -43,7 +47,7 @@ dmnModeler.on('views.changed', function(event) {
 
     const className = CLASS_NAMES[v.type];
 
-    var tab = $(`
+    const tab = $(`
       <div class="tab ${ v === activeView ? 'active' : ''}" data-id="${idx}">
         <span class="${ className }"></span>
         ${v.element.name || v.element.id}
