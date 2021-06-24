@@ -138,7 +138,12 @@
         // import diagram
         try {
           const { warnings } = await dmnModeler.importXML(dmnXML);
-          console.log(`diagram successfully imported with ${warnings.length} warnings`);
+
+          if (warnings.length) {
+            console.log('import with warnings', warnings);
+          } else {
+            console.log('import successful');
+          }
 
           // access active editor components
           const activeEditor = dmnModeler.getActiveViewer();
