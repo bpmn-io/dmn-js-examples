@@ -52,25 +52,23 @@ The library is bundled as an UMD bundle and binds itself to the global `DmnJS`
 variable.
 
 ```javascript
-var dmnJS = new DmnJS({
+const dmnJS = new DmnViewer({
   container: '#canvas'
 });
 
-dmnJS.importXML(someDiagram, function(err) {
+try {
+  const { warnings } = await dmnJS.importXML(xml);
 
-  if (!err) {
-    console.log('success!');
+  console.log(`Successful import with ${warnings.length} warnings`);
 
-    // access active viewer (may be an editor, too!)
-    var activeViewer = dmnJS.getActiveViewer();
-
-    activeViewer
+  // access active viewer (might be an editor, too!)
+  dmnJS
+    .getActiveViewer()
       .get('canvas')
         .zoom('fit-viewport');
-  } else {
-    console.log('something went wrong:', err);
-  }
-});
+} catch (err) {
+  console.log('something went wrong:', err);
+}
 ```
 
 ## License
