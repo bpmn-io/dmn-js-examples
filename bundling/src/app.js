@@ -13,7 +13,11 @@ async function asyncImportXml(xml) {
   try {
     const { warnings } = await dmnJS.importXML(xml);
 
-    console.log(`Successful import with ${warnings.length} warnings`);
+    if (warnings.length) {
+      console.log('import with warnings', warnings);
+    } else {
+      console.log('import successful');
+    }
 
     dmnJS
       .getActiveViewer()

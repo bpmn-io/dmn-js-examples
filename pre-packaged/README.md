@@ -59,7 +59,11 @@ const dmnJS = new DmnViewer({
 try {
   const { warnings } = await dmnJS.importXML(xml);
 
-  console.log(`Successful import with ${warnings.length} warnings`);
+  if (warnings.length) {
+    console.log('import with warnings', warnings);
+  } else {
+    console.log('import successful');
+  }
 
   // access active viewer (might be an editor, too!)
   dmnJS
