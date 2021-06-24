@@ -2,7 +2,7 @@
 <html>
   <head>
     <meta charset="UTF-8" />
-    <title>Hello World</title>
+    <title>dmn-js viewer example</title>
 
     <!-- required viewer styles -->
     <link rel="stylesheet" href="https://unpkg.com/dmn-js@11.0.1/dist/assets/dmn-js-shared.css">
@@ -13,9 +13,6 @@
 
     <!-- viewer distro -->
     <script src="https://unpkg.com/dmn-js@11.0.1/dist/dmn-viewer.development.js"></script>
-
-    <!-- needed for this example only -->
-    <script src="https://unpkg.com/jquery@3.3.1/dist/jquery.js"></script>
 
     <!-- example styles -->
     <style>
@@ -30,48 +27,48 @@
     <div id="canvas"></div>
 
     <script>
-
-      var diagramUrl = 'https://cdn.staticaly.com/gh/bpmn-io/dmn-js-examples/a71e16/starter/diagram.dmn';
+      const diagramUrl = 'https://cdn.staticaly.com/gh/bpmn-io/dmn-js-examples/a71e16/starter/diagram.dmn';
 
       // viewer instance
-      var dmnViewer = new DmnJS({
+      const dmnViewer = new DmnJS({
         container: '#canvas'
       });
-
 
       /**
        * Open diagram in our viewer instance.
        *
-       * @param {String} dmnXML diagram to display
+       * @param {String} diagramUrl to retrieve the dmnXML from
        */
-      function openDiagram(dmnXML) {
+      async function openDiagram(diagramUrl) {
+
+        // fetch diagram
+        const response = await fetch(diagramUrl);
+
+        dmnXML = await response.text();
 
         // import diagram
-        dmnViewer.importXML(dmnXML, function(err) {
-
-          if (err) {
-            return console.error('could not import DMN 1.1 diagram', err);
-          }
+        try {
+          const { warnings } = await dmnViewer.importXML(dmnXML);
 
           // fetch currently active view
-          var activeView = dmnModeler.getActiveView();
+          const activeView = dmnViewer.getActiveView();
 
           // apply initial logic in DRD view
           if (activeView.type === 'drd') {
-            var activeEditor = dmnModeler.getActiveViewer();
+            const activeEditor = dmnViewer.getActiveViewer();
 
             // access active editor components
-            var canvas = activeEditor.get('canvas');
+            const canvas = activeEditor.get('canvas');
 
             // zoom to fit full viewport
             canvas.zoom('fit-viewport');
           }
-        });
+        } catch (err) {
+          console.error('could not import DMN 1.3 diagram', err);
+        }
       }
 
-
-      // load external diagram file via AJAX and open it
-      $.get(diagramUrl, openDiagram, 'text');
+      openDiagram(diagramUrl);
     </script>
   </body>
 </html>
