@@ -14,7 +14,7 @@ It builds upon the [starter example](https://github.com/bpmn-io/dmn-js-examples/
 Open a view using `#getViews` and `#open` when clicking on a tab.
 
 ```javascript
-$('.editor-tabs').delegate('.tab', 'click', function(e) {
+$('.editor-tabs').delegate('.tab', 'click', async function(e) {
 
   // get index of view from clicked tab
   const viewIdx = parseInt(this.getAttribute('data-id'), 10);
