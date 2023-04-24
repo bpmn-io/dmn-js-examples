@@ -13,7 +13,7 @@
   "license": "MIT",
   "dependencies": {
     "@bpmn-io/dmn-migrate": "^0.4.2",
-    "dmn-js": "^14.1.4",
+    "dmn-js": "^14.1.5",
     "file-drops": "^0.4.0"
   },
   "devDependencies": {
