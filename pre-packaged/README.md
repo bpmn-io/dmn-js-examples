@@ -27,7 +27,7 @@ Download or simply include the relevant dependencies into your website:
 <script src="https://unpkg.com/dmn-js@15.1.0/dist/dmn-viewer.development.js"></script>
 ```
 
-Download the complete [viewer example](https://cdn.staticaly.com/gh/bpmn-io/dmn-js-examples/main/starter/viewer.html).
+Download the complete [viewer example](https://cdn.statically.io/gh/bpmn-io/dmn-js-examples/main/starter/viewer.html).
 
 #### Modeler
 
@@ -43,7 +43,7 @@ Download the complete [viewer example](https://cdn.staticaly.com/gh/bpmn-io/dmn-
 <script src="https://unpkg.com/dmn-js@15.1.0/dist/dmn-modeler.development.js"></script>
 ```
 
-Download the complete [modeler example](https://cdn.staticaly.com/gh/bpmn-io/dmn-js-examples/main/starter/modeler.html).
+Download the complete [modeler example](https://cdn.statically.io/gh/bpmn-io/dmn-js-examples/main/starter/modeler.html).
 
 
 ## Use the Library
