@@ -4,9 +4,9 @@ This example showcases using the API of dmn-js to build a tabbed modeler.
 
 It builds upon the [starter example](https://github.com/bpmn-io/dmn-js-examples/tree/main/starter).
 
-[![modeler example screenshot](./modeler.png)](https://cdn.staticaly.com/dmn-io/dmn-js-examples/main/modeler/modeler.html)
+[![modeler example screenshot](./modeler.png)](https://cdn.statically.io/dmn-io/dmn-js-examples/main/modeler/modeler.html)
 
-[Try it out](https://cdn.staticaly.com/gh/bpmn-io/dmn-js-examples/main/modeler/modeler.html).
+[Try it out](https://cdn.statically.io/gh/bpmn-io/dmn-js-examples/main/modeler/modeler.html).
 
 
 ## Usage Summary
