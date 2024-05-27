@@ -36,6 +36,6 @@
     "webpack-cli": "^4.7.2"
   },
   "dependencies": {
-    "dmn-js": "^16.3.0"
+    "dmn-js": "^16.4.0"
   }
 }
