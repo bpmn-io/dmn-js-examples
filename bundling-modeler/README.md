@@ -1,6 +1,6 @@
-# dmn-js bundling example
+# dmn-js bundling-modeler example
 
-This example showcases how to add [dmn-js](https://github.com/bpmn-io/dmn-js)
+This example showcases how to add [dmn-js](https://github.com/bpmn-io/dmn-js) modeler
 into a node-style application and bundle it for the browser using
 [Webpack](https://webpack.js.org).
 
