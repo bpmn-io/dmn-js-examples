@@ -1,0 +1,43 @@
+{
+  "name": "dmn-js-example-bundling-modeler",
+  "version": "0.0.0",
+  "description": "An example how to use dmn-js modeler with npm + webpack",
+  "scripts": {
+    "all": "run-s bundle open",
+    "bundle": "webpack",
+    "bundle:watch": "webpack -w",
+    "open": "open-cli ./public/index.html",
+    "dev": "npm run bundle:watch"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/bpmn-io/dmn-js-examples"
+  },
+  "keywords": [
+    "dmn-js-example"
+  ],
+  "author": {
+    "name": "Maciej Barelkowski",
+    "url": "https://github.com/barmac"
+  },
+  "contributors": [
+    {
+      "name": "bpmn.io contributors",
+      "url": "https://github.com/bpmn-io"
+    }
+  ],
+  "license": "MIT",
+  "devDependencies": {
+    "@parcel/transformer-inline-string": "^2.12.0",
+    "npm-run-all": "^4.1.5",
+    "open-cli": "^7.0.0",
+    "parcel": "^2.12.0",
+    "process": "^0.11.10",
+    "raw-loader": "^4.0.0",
+    "webpack": "^5.90.3",
+    "webpack-cli": "^5.1.4"
+  },
+  "dependencies": {
+    "dmn-js": "^16.6.1"
+  }
+}
