@@ -1,0 +1,46 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="content-type" content="text/html; charset=utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+
+  <!-- required viewer styles -->
+  <link rel="stylesheet" href="../node_modules/dmn-js/dist/assets/diagram-js.css">
+  <link rel="stylesheet" href="../node_modules/dmn-js/dist/assets/dmn-js-drd.css">
+  <link rel="stylesheet" href="../node_modules/dmn-js/dist/assets/dmn-js-decision-table.css">
+  <link rel="stylesheet" href="../node_modules/dmn-js/dist/assets/dmn-js-decision-table-controls.css">
+  <link rel="stylesheet" href="../node_modules/dmn-js/dist/assets/dmn-js-literal-expression.css">
+  <link rel="stylesheet" href="../node_modules/dmn-js/dist/assets/dmn-js-boxed-expression.css">
+  <link rel="stylesheet" href="../node_modules/dmn-js/dist/assets/dmn-js-boxed-expression-controls.css">
+  <link rel="stylesheet" href="../node_modules/dmn-js/dist/assets/dmn-js-shared.css">
+  <link rel="stylesheet" href="../node_modules/dmn-js/dist/assets/dmn-font/css/dmn.css">
+
+  <style type="text/css">
+
+    html, body, #canvas {
+      height: 100%;
+      width: 100%;
+
+      padding: 0;
+      margin: 0;
+    }
+
+  </style>
+
+  <!--
+    this is an example of how to use dmn-js in a standalone application built with
+    CommonJS modules + browserify
+  -->
+
+  <title>npm/browserify example - dmn-js-examples</title>
+</head>
+<body>
+
+  <h1>Modeler</h1>
+
+  <div id="canvas"></div>
+
+  <script src="./app.bundled.js"></script>
+</body>
+</html>
