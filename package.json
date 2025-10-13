@@ -1,0 +1,28 @@
+{
+  "name": "dmn-js-examples",
+  "version": "0.0.0",
+  "private": true,
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/bpmn-io/dmn-js-examples"
+  },
+  "scripts": {
+    "all": "run-s build",
+    "build": "lerna run all --stream"
+  },
+  "contributors": [
+    {
+      "name": "bpmn.io contributors",
+      "url": "https://github.com/bpmn-io"
+    }
+  ],
+  "license": "MIT",
+  "devDependencies": {
+    "lerna": "^8.2.4",
+    "npm-run-all2": "^8.0.4"
+  },
+  "workspaces": [
+    "bundling",
+    "dmn-compatibility"
+  ]
+}
