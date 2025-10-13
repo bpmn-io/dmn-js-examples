@@ -4,11 +4,11 @@
   "description": "An example how to use dmn-js with npm + webpack",
   "main": "app/app.js",
   "scripts": {
-    "all": "run-s bundle open",
+    "all": "run-s bundle",
     "bundle": "webpack",
     "bundle:watch": "webpack -w",
     "open": "open-cli ./public/index.html",
-    "dev": "npm run bundle:watch"
+    "start": "run-p 'bundle:watch' open"
   },
   "repository": {
     "type": "git",
