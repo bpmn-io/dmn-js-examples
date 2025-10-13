@@ -7,8 +7,9 @@
     "url": "https://github.com/bpmn-io/dmn-js-examples"
   },
   "scripts": {
-    "all": "run-s build",
-    "build": "lerna run all --stream"
+    "all": "run-s lint build",
+    "build": "lerna run all --stream",
+    "lint": "eslint ."
   },
   "contributors": [
     {
@@ -18,7 +19,10 @@
   ],
   "license": "MIT",
   "devDependencies": {
-    "lerna": "^8.2.4",
+    "eslint": "^9.17.0",
+    "eslint-plugin-bpmn-io": "^2.0.2",
+    "eslint-plugin-mocha": "^10.5.0",
+    "lerna": "^8.1.9",
     "npm-run-all2": "^8.0.4"
   },
   "workspaces": [
