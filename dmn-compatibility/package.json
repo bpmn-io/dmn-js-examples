@@ -3,24 +3,22 @@
   "version": "0.0.0",
   "description": "A DMN compatibility example",
   "scripts": {
-    "all": "run-s bundle",
-    "bundle": "webpack",
-    "bundle:watch": "webpack -w",
-    "open": "open-cli ./public/index.html",
-    "start": "run-p 'bundle:watch' open"
+    "all": "run-s build",
+    "build": "webpack --mode production",
+    "dev": "webpack-dev-server --static=public --open",
+    "start": "run-s dev"
   },
   "author": "Philipp Fromme",
   "license": "MIT",
   "dependencies": {
     "@bpmn-io/dmn-migrate": "^0.4.2",
     "dmn-js": "^17.3.0",
-    "file-drops": "^0.4.0"
+    "file-drops": "^0.6.2"
   },
   "devDependencies": {
-    "npm-run-all": "^4.1.5",
-    "open-cli": "^8.0.0",
-    "raw-loader": "^4.0.0",
+    "npm-run-all2": "^8.0.4",
     "webpack": "^5.102.1",
-    "webpack-cli": "^6.0.1"
+    "webpack-cli": "^6.0.1",
+    "webpack-dev-server": "^5.2.2"
   }
 }
