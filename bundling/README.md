@@ -31,7 +31,7 @@ try {
   const { warnings } = await dmnJS.importXML(xml);
 
   if (warnings.length) {
-    console.log('import with warnings', warnings);
+    console.warn('import with warnings', warnings);
   } else {
     console.log('import successful');
   }
@@ -41,7 +41,7 @@ try {
       .get('canvas')
         .zoom('fit-viewport');
 } catch (err) {
-  console.log('something went wrong:', err);
+  console.error('something went wrong:', err);
 }
 ```
 

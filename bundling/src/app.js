@@ -5,27 +5,25 @@ import dishDecision from '../resources/dish-decision.dmn';
 import DmnViewer from 'dmn-js';
 
 
-async function asyncImportXml(xml) {
+async function importXML(xml) {
   const dmnJS = new DmnViewer({
     container: '#canvas'
   });
 
-  try {
-    const { warnings } = await dmnJS.importXML(xml);
+  const { warnings } = await dmnJS.importXML(xml);
 
-    if (warnings.length) {
-      console.log('import with warnings', warnings);
-    } else {
-      console.log('import successful');
-    }
-
-    dmnJS
-      .getActiveViewer()
-        .get('canvas')
-          .zoom('fit-viewport');
-  } catch (err) {
-    console.log('something went wrong:', err);
+  if (warnings.length) {
+    console.warn('imported diagram with warnings', warnings);
+  } else {
+    console.log('import successful');
   }
+
+  dmnJS
+    .getActiveViewer()
+    .get('canvas')
+    .zoom('fit-viewport');
 }
 
-asyncImportXml(dishDecision);
+importXML(dishDecision).catch(err => {
+  console.error('Failed to import diagram', err);
+});
