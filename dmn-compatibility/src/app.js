@@ -18,18 +18,19 @@ async function importXML(xml) {
   xml = await migrateDiagram(xml);
 
   // (1.2) import DMN 1.3 diagram
-  try {
-    await dmnModeler.importXML(xml);
-  } catch (err) {
-    console.log(err);
-  }
+  await dmnModeler.importXML(xml);
 }
 
-importXML(diagram);
+importXML(diagram).catch(err => {
+  console.error('Failed to import diagram', err);
+});
+
 
 // drag and drop DMN diagrams
 document.querySelector('#canvas').addEventListener('dragover', fileDrop(files => {
   const { contents } = files[ 0 ];
 
-  importXML(contents);
+  importXML(contents).catch(err => {
+    console.error('Failed to import diagram', err);
+  });
 }));
