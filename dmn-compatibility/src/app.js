@@ -1,4 +1,4 @@
-import diagram from '../resources/diagram13.dmn';
+import diagram from '../resources/diagram11.dmn';
 
 import DmnModeler from 'dmn-js/lib/Modeler';
 
