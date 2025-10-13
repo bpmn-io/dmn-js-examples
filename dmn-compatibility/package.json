@@ -3,11 +3,11 @@
   "version": "0.0.0",
   "description": "A DMN compatibility example",
   "scripts": {
-    "all": "run-s bundle open",
+    "all": "run-s bundle",
     "bundle": "webpack",
     "bundle:watch": "webpack -w",
     "open": "open-cli ./public/index.html",
-    "dev": "npm run bundle:watch"
+    "start": "run-p 'bundle:watch' open"
   },
   "author": "Philipp Fromme",
   "license": "MIT",
