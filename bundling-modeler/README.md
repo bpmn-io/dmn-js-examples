@@ -1,6 +1,6 @@
-# dmn-js bundling example
+# dmn-js bundling-modeler example
 
-This example showcases how to add [dmn-js](https://github.com/bpmn-io/dmn-js)
+This example showcases how to add [dmn-js](https://github.com/bpmn-io/dmn-js) modeler
 into a node-style application and bundle it for the browser using
 [Webpack](https://webpack.js.org).
 
@@ -31,7 +31,7 @@ try {
   const { warnings } = await dmnJS.importXML(xml);
 
   if (warnings.length) {
-    console.warn('import with warnings', warnings);
+    console.log('import with warnings', warnings);
   } else {
     console.log('import successful');
   }
@@ -41,7 +41,7 @@ try {
       .get('canvas')
         .zoom('fit-viewport');
 } catch (err) {
-  console.error('something went wrong:', err);
+  console.log('something went wrong:', err);
 }
 ```
 
