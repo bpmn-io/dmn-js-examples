@@ -1,0 +1,16 @@
+{
+  "$schema": "https://docs.renovatebot.com/renovate-schema.json",
+  "extends": [
+    "github>bpmn-io/renovate-config:recommended"
+  ],
+  "packageRules": [
+    {
+      "matchPackagePatterns": [
+        "dmn-js.*",
+        "diagram-js.*"
+      ],
+      "groupName": "dmn-js dependencies",
+      "groupSlug": "dmn-js"
+    }
+  ]
+}
