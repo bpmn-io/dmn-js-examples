@@ -29,9 +29,9 @@
   ],
   "license": "MIT",
   "dependencies": {
-    "@bpmn-io/properties-panel": "^3.39.0",
+    "@bpmn-io/properties-panel": "^3.58.1",
     "dmn-js": "^18.0.0",
-    "dmn-js-properties-panel": "^3.10.0"
+    "dmn-js-properties-panel": "^3.13.0"
   },
   "devDependencies": {
     "npm-run-all2": "^9.0.0",
