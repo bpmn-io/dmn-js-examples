@@ -5,7 +5,7 @@
   "scripts": {
     "all": "run-s build",
     "build": "webpack --mode production",
-    "dev": "webpack-dev-server --static=public --open",
+    "dev": "webpack serve --static=public --open",
     "start": "run-s dev"
   },
   "repository": {
@@ -30,14 +30,14 @@
   "license": "MIT",
   "devDependencies": {
     "npm-run-all2": "^9.0.0",
-    "webpack": "^5.97.1",
-    "webpack-cli": "^6.0.1",
-    "webpack-dev-server": "^5.2.0"
+    "webpack": "^5.112.2",
+    "webpack-cli": "^7.3.0",
+    "webpack-dev-server": "^6.1.0"
   },
   "dependencies": {
-    "@bpmn-io/properties-panel": "^3.23.0",
+    "@bpmn-io/properties-panel": "^3.58.1",
     "dmn-js": "^18.0.0",
-    "dmn-js-properties-panel": "^3.8.0",
+    "dmn-js-properties-panel": "^3.13.0",
     "htm": "^3.1.1"
   }
 }
