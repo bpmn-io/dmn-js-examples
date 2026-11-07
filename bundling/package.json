@@ -30,8 +30,8 @@
   "devDependencies": {
     "npm-run-all2": "^9.0.0",
     "webpack": "^5.93.0",
-    "webpack-cli": "^6.0.1",
-    "webpack-dev-server": "^5.2.2"
+    "webpack-cli": "^7.0.0",
+    "webpack-dev-server": "^6.0.0"
   },
   "dependencies": {
     "dmn-js": "^18.0.0"
