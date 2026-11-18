@@ -11,7 +11,7 @@
   "author": "Philipp Fromme",
   "license": "MIT",
   "dependencies": {
-    "@bpmn-io/dmn-migrate": "^0.7.1",
+    "@bpmn-io/dmn-migrate": "^0.8.0",
     "dmn-js": "^18.0.0",
     "file-drops": "^0.7.0"
   },
