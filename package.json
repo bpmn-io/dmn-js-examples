@@ -26,6 +26,7 @@
   "workspaces": [
     "bundling",
     "dmn-compatibility",
+    "dmn-16",
     "properties-panel",
     "properties-panel-extension"
   ]

@@ -1,0 +1,23 @@
+{
+  "name": "dmn-16",
+  "version": "0.0.0",
+  "description": "An example of opening DMN 1.6 diagrams by overriding the DMN meta-model",
+  "scripts": {
+    "all": "run-s build",
+    "build": "webpack --mode production",
+    "dev": "webpack serve --static=public --open",
+    "start": "run-s dev"
+  },
+  "license": "MIT",
+  "dependencies": {
+    "dmn-js": "^18.0.0",
+    "dmn-moddle": "^12.2.1",
+    "file-drops": "^0.7.0"
+  },
+  "devDependencies": {
+    "npm-run-all2": "^9.0.0",
+    "webpack": "^5.112.2",
+    "webpack-cli": "^7.3.0",
+    "webpack-dev-server": "^6.1.0"
+  }
+}

@@ -1,0 +1,148 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<definitions xmlns="https://www.omg.org/spec/DMN/20240513/MODEL/" xmlns:dmndi="https://www.omg.org/spec/DMN/20230324/DMNDI/" xmlns:dc="http://www.omg.org/spec/DMN/20180521/DC/" xmlns:di="http://www.omg.org/spec/DMN/20180521/DI/" id="dish" name="DMN 1.6 Diagram" namespace="http://bpmn.io/schema/dmn">
+  <inputData id="season_id" name="Season">
+    <variable id="season_var" name="season" typeRef="string" />
+  </inputData>
+  <inputData id="guestCount_id" name="Number of Guests">
+    <variable id="guestCount_var" name="guestCount" typeRef="number" />
+  </inputData>
+  <knowledgeSource id="host_ks" name="Host" />
+  <decision id="dish_decision" name="Dish">
+    <variable id="dish_var" name="dish" typeRef="string" />
+    <informationRequirement id="InformationRequirement_season">
+      <requiredInput href="#season_id" />
+    </informationRequirement>
+    <informationRequirement id="InformationRequirement_guestCount">
+      <requiredInput href="#guestCount_id" />
+    </informationRequirement>
+    <authorityRequirement id="AuthorityRequirement_host">
+      <requiredAuthority href="#host_ks" />
+    </authorityRequirement>
+    <decisionTable id="dish_decisionTable" hitPolicy="UNIQUE">
+      <input id="season_input" label="Season">
+        <inputExpression id="season_inputExpression" typeRef="string">
+          <text>season</text>
+        </inputExpression>
+      </input>
+      <input id="guestCount_input" label="Number of Guests">
+        <inputExpression id="guestCount_inputExpression" typeRef="number">
+          <text>guestCount</text>
+        </inputExpression>
+      </input>
+      <output id="dish_output" label="Dish" name="dish" typeRef="string" />
+      <rule id="rule_1">
+        <inputEntry id="rule_1_season">
+          <text>"Fall"</text>
+        </inputEntry>
+        <inputEntry id="rule_1_guestCount">
+          <text>&lt;= 8</text>
+        </inputEntry>
+        <outputEntry id="rule_1_dish">
+          <text>"Spareribs"</text>
+        </outputEntry>
+      </rule>
+      <rule id="rule_2">
+        <inputEntry id="rule_2_season">
+          <text>"Winter"</text>
+        </inputEntry>
+        <inputEntry id="rule_2_guestCount">
+          <text>&lt;= 8</text>
+        </inputEntry>
+        <outputEntry id="rule_2_dish">
+          <text>"Roastbeef"</text>
+        </outputEntry>
+      </rule>
+      <rule id="rule_3">
+        <inputEntry id="rule_3_season">
+          <text>"Spring"</text>
+        </inputEntry>
+        <inputEntry id="rule_3_guestCount">
+          <text>&lt;= 4</text>
+        </inputEntry>
+        <outputEntry id="rule_3_dish">
+          <text>"Dry Aged Gourmet Steak"</text>
+        </outputEntry>
+      </rule>
+      <rule id="rule_4">
+        <inputEntry id="rule_4_season">
+          <text>"Spring"</text>
+        </inputEntry>
+        <inputEntry id="rule_4_guestCount">
+          <text>[5..8]</text>
+        </inputEntry>
+        <outputEntry id="rule_4_dish">
+          <text>"Steak"</text>
+        </outputEntry>
+      </rule>
+      <rule id="rule_5">
+        <inputEntry id="rule_5_season">
+          <text>"Fall","Winter","Spring"</text>
+        </inputEntry>
+        <inputEntry id="rule_5_guestCount">
+          <text>&gt; 8</text>
+        </inputEntry>
+        <outputEntry id="rule_5_dish">
+          <text>"Stew"</text>
+        </outputEntry>
+      </rule>
+      <rule id="rule_6">
+        <inputEntry id="rule_6_season">
+          <text>"Summer"</text>
+        </inputEntry>
+        <inputEntry id="rule_6_guestCount">
+          <text>-</text>
+        </inputEntry>
+        <outputEntry id="rule_6_dish">
+          <text>"Light Salad and nice Steak"</text>
+        </outputEntry>
+      </rule>
+    </decisionTable>
+  </decision>
+  <decision id="greeting_decision" name="Greeting">
+    <variable id="greeting_var" name="greeting" typeRef="string" />
+    <informationRequirement id="InformationRequirement_dish">
+      <requiredDecision href="#dish_decision" />
+    </informationRequirement>
+    <literalExpression id="greeting_literalExpression">
+      <text>"Welcome! Today we serve " + dish + "."</text>
+    </literalExpression>
+  </decision>
+  <dmndi:DMNDI>
+    <dmndi:DMNDiagram id="DMNDiagram_1">
+      <dmndi:DMNShape id="DMNShape_season" dmnElementRef="season_id">
+        <dc:Bounds height="45" width="125" x="300" y="500" />
+      </dmndi:DMNShape>
+      <dmndi:DMNShape id="DMNShape_guestCount" dmnElementRef="guestCount_id">
+        <dc:Bounds height="45" width="125" x="500" y="500" />
+      </dmndi:DMNShape>
+      <dmndi:DMNShape id="DMNShape_host" dmnElementRef="host_ks">
+        <dc:Bounds height="63" width="100" x="700" y="325" />
+      </dmndi:DMNShape>
+      <dmndi:DMNShape id="DMNShape_dish" dmnElementRef="dish_decision">
+        <dc:Bounds height="80" width="180" x="385" y="315" />
+      </dmndi:DMNShape>
+      <dmndi:DMNShape id="DMNShape_greeting" dmnElementRef="greeting_decision">
+        <dc:Bounds height="80" width="180" x="385" y="150" />
+      </dmndi:DMNShape>
+      <dmndi:DMNEdge id="DMNEdge_season" dmnElementRef="InformationRequirement_season">
+        <di:waypoint x="363" y="500" />
+        <di:waypoint x="445" y="415" />
+        <di:waypoint x="445" y="395" />
+      </dmndi:DMNEdge>
+      <dmndi:DMNEdge id="DMNEdge_guestCount" dmnElementRef="InformationRequirement_guestCount">
+        <di:waypoint x="563" y="500" />
+        <di:waypoint x="505" y="415" />
+        <di:waypoint x="505" y="395" />
+      </dmndi:DMNEdge>
+      <dmndi:DMNEdge id="DMNEdge_host" dmnElementRef="AuthorityRequirement_host">
+        <di:waypoint x="700" y="356" />
+        <di:waypoint x="565" y="355" />
+      </dmndi:DMNEdge>
+      <dmndi:DMNEdge id="DMNEdge_dish" dmnElementRef="InformationRequirement_dish">
+        <di:waypoint x="475" y="315" />
+        <di:waypoint x="475" y="250" />
+        <di:waypoint x="475" y="230" />
+      </dmndi:DMNEdge>
+    </dmndi:DMNDiagram>
+  </dmndi:DMNDI>
+</definitions>
